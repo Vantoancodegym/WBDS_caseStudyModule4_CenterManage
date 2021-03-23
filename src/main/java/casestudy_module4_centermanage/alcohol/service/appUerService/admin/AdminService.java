@@ -5,6 +5,7 @@ import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.model.Warden;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
 import casestudy_module4_centermanage.alcohol.repository.TeacherRepo;
+import casestudy_module4_centermanage.alcohol.repository.WardenRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ public class AdminService implements IAdminService{
     private TeacherRepo teacherRepo;
     @Autowired
     private StudentRepo studentRepo;
+    @Autowired
+    private WardenRepo wardenRepo;
     @Override
     public Teacher insertTeacher() {
         return null;
