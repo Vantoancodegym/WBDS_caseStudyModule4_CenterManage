@@ -23,12 +23,13 @@ public class AdminService implements IAdminService{
     }
 
     @Override
-    public Student insertStudent() {
-        return null;
+    public Student insertStudent(Student student) {
+        return studentRepo.save(student);
     }
 
     @Override
-    public Warden insertWarden() {
-        return null;
+    public Warden insertWarden(Warden warden) {
+        return wardenRepo.save(warden);
     }
+
 }
