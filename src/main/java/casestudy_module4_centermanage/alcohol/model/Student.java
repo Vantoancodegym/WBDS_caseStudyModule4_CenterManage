@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Student {

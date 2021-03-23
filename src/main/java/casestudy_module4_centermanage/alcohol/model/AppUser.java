@@ -15,10 +15,11 @@ public class AppUser {
     private String phone;
     private String address;
     private String avatar;
+    @ManyToOne
+    private AppRole appRole;
     @Transient
     private MultipartFile avatarMul;
-    @ManyToOne
-    private AppRole role;
+
 
     public AppUser() {
     }
@@ -88,10 +89,10 @@ public class AppUser {
     }
 
     public AppRole getRole() {
-        return role;
+        return appRole;
     }
 
     public void setRole(AppRole role) {
-        this.role = role;
+        this.appRole = role;
     }
 }
