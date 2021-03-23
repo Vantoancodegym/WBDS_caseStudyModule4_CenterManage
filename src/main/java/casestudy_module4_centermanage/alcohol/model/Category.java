@@ -1,17 +1,18 @@
 package casestudy_module4_centermanage.alcohol.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Classes {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
-    private Category category;
 
-    public Classes() {
+    public Category() {
     }
 
     public Long getId() {
@@ -28,13 +29,5 @@ public class Classes {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }
