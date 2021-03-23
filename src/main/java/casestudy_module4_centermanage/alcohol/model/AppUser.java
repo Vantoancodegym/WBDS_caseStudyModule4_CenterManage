@@ -10,6 +10,7 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+    private String displayName;
     private String password;
     private String phone;
     private String address;
@@ -20,6 +21,14 @@ public class AppUser {
     private AppRole role;
 
     public AppUser() {
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public Long getId() {
