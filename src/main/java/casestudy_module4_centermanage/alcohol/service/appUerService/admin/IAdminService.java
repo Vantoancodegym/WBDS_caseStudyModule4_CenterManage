@@ -6,7 +6,7 @@ import casestudy_module4_centermanage.alcohol.model.Warden;
 
 public interface IAdminService {
     Teacher insertTeacher(Teacher teacher);
-    Student insertStudent();
+    Student insertStudent(Student student);
     Warden insertWarden();
 
 }
