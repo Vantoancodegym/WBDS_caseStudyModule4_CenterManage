@@ -1,5 +1,6 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
+import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.model.Warden;
@@ -33,6 +34,11 @@ public class AdminService implements IAdminService{
     @Override
     public Warden insertWarden(Warden warden) {
         return wardenRepo.save(warden);
+    }
+
+    @Override
+    public Classes insertClasses(Classes classes) {
+        return classesRepo.save(classes);
     }
 
 }
