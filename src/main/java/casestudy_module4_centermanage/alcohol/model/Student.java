@@ -10,6 +10,9 @@ public class Student {
     private Double tuition;
     @OneToOne
     private AppUser appUser;
+    @ManyToOne
+    private Status status;
+
 
 
 }
