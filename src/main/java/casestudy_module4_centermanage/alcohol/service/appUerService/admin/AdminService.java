@@ -19,7 +19,7 @@ public class AdminService implements IAdminService{
     private WardenRepo wardenRepo;
     @Override
     public Teacher insertTeacher() {
-        return null;
+        return teacherRepo.s;
     }
 
     @Override
