@@ -3,11 +3,14 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.model.Warden;
+import casestudy_module4_centermanage.alcohol.repository.TeacherRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AdminService implements IAdminService{
-
+    @Autowired
+    private TeacherRepo teacherRepo;
     @Override
     public Teacher insertTeacher() {
         return null;
