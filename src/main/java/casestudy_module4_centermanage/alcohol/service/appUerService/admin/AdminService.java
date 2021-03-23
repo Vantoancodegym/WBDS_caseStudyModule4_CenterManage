@@ -41,4 +41,9 @@ public class AdminService implements IAdminService{
         return classesRepo.save(classes);
     }
 
+    @Override
+    public int countStudentForTeacher() {
+        return studentRepo.countStudentForTeacher();
+    }
+
 }

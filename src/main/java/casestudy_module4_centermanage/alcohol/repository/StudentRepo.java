@@ -11,5 +11,5 @@ import java.util.List;
 public interface StudentRepo extends JpaRepository<Student,Long> {
     @Query(value = "select count(*) from teacher_classes inner join student\n" +
             "on teacher_classes.classes_id = student.classes_id",nativeQuery = true)
-    List<Student> getStudentByClasses_Name();
+    int countStudentForTeacher();
 }
