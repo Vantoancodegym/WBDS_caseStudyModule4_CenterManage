@@ -18,8 +18,8 @@ public class AdminService implements IAdminService{
     @Autowired
     private WardenRepo wardenRepo;
     @Override
-    public Teacher insertTeacher() {
-        return teacherRepo.s;
+    public Teacher insertTeacher(Teacher teacher) {
+        return teacherRepo.save(teacher);
     }
 
     @Override
