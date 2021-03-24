@@ -94,5 +94,9 @@ public class AdminController {
     public ResponseEntity<LiveChat> insertEvent(@RequestBody LiveChat e){
         return new ResponseEntity(adminService.insertLiveChat(e),HttpStatus.OK);
     }
+    @GetMapping("getTop5StudentHaveBigScore")
+    public ResponseEntity<List<Student>> getTop5StudentHaveBigScore(){
+        return new ResponseEntity<>(adminService.getTop5StudentHaveBigScore(),HttpStatus.OK);
+    }
 
 }

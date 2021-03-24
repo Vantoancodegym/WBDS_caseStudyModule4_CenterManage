@@ -17,20 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
-<<<<<<< HEAD
-//    @Autowired
-//    private TeacherService teacherService;
-//
-//    @GetMapping
-//    public ResponseEntity<List<Classes>>showAllClasses(){
-//       List<Classes> classList = teacherService.showAllClass();
-//        return new  ResponseEntity<>(classList, HttpStatus.OK);
-//    }
-//    @GetMapping
-//    public ResponseEntity<List<Student>>ShowAllStudent(){
-//        return new ResponseEntity<>(teacherService.showAllStudentByClass(),HttpStatus.OK);
-//    }
-=======
+
     @Autowired
     private TeacherService teacherService;
 
@@ -65,5 +52,4 @@ public class TeacherController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
->>>>>>> d7fa5ae769b91d8f9b9e44df98869b02c4cb541a
 }
