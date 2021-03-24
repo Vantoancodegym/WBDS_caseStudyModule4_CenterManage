@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.teacher;
 
 import casestudy_module4_centermanage.alcohol.model.Diary;
+import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
 import casestudy_module4_centermanage.alcohol.repository.DiaryRepo;
@@ -20,7 +21,7 @@ public class TeacherService implements ITeacherService{
 
     @Autowired
     private DiaryRepo diaryRepo;
-    Teacher teacher;
+    Student student;
 
 
     @Override
