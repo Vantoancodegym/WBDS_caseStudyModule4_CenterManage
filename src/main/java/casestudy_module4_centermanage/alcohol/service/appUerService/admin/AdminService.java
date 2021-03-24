@@ -47,7 +47,7 @@ public class AdminService implements IAdminService{
 
     @Override
     public double getAvgScoreByClasses() {
-        return 0;
+        return scoreRepo.getAvgScoreByClasses();
     }
 
 }
