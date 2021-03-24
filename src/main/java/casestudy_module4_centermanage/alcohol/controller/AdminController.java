@@ -66,5 +66,9 @@ public class AdminController {
     public ResponseEntity<List<Subject>> findAllSubject(){
         return new ResponseEntity<>(adminService.findAllSubject(),HttpStatus.OK);
     }
+    @GetMapping("findAllEvent")
+    public ResponseEntity<List<Event>> findAllEvent(){
+        return new ResponseEntity<>(adminService.findAllEvent(),HttpStatus.OK);
+    }
 
 }
