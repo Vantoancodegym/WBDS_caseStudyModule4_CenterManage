@@ -12,4 +12,5 @@ public interface IAdminService {
     double getAvgScoreByClasses();
     Subject insertSubject(Subject subject);
     int countSubject();
+    int countEvent();
 }
