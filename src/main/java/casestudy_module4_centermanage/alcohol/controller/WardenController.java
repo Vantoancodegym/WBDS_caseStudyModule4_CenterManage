@@ -45,6 +45,4 @@ public class WardenController {
        return new ResponseEntity<>(HttpStatus.OK);
    }
 
-
-
 }
