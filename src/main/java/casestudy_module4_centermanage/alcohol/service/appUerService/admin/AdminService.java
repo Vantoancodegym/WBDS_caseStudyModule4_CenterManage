@@ -57,7 +57,7 @@ public class AdminService implements IAdminService{
 
     @Override
     public int countSubject() {
-        return 0;
+        return subjectRepo.countSubject();
     }
 
 }
