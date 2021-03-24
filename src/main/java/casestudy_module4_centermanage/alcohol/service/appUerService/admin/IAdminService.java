@@ -19,4 +19,5 @@ public interface IAdminService {
     List<Subject> findAllSubject();
     List<Event> findAllEvent();
     List<Teacher> findAllTeacher();
+    List<CustomerRegister> findAllCustomerRegister();
 }
