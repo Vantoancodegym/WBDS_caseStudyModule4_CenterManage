@@ -11,5 +11,6 @@ public interface ITeacherService {
     void delete(Long id);
     List<AppUser> showAllStudentByClass();
     List<Classes> showAllClass();
+    List<Diary> findAll();
 
 }
