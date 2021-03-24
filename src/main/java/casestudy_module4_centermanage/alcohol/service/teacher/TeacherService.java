@@ -20,6 +20,7 @@ public class TeacherService implements ITeacherService{
 
     @Autowired
     private DiaryRepo diaryRepo;
+    Teacher teacher;
 
 
     @Override
