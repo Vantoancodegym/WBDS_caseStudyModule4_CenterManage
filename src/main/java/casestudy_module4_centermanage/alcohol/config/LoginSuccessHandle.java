@@ -16,7 +16,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Component
-public class LoginSuccessHandle extends SimpleUrlAuthenticationSuccessHandler {
+public class    LoginSuccessHandle extends SimpleUrlAuthenticationSuccessHandler {
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
     @Override
