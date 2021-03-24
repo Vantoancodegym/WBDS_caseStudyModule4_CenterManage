@@ -22,7 +22,6 @@ public class TeacherService implements ITeacherService{
     @Autowired
     private DiaryRepo diaryRepo;
 
-
     @Override
     public Diary create(Diary diary) {
         return diaryRepo.save(diary);
