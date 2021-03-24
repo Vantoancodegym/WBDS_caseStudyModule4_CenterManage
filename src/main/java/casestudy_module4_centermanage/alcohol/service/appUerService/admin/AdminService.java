@@ -119,5 +119,10 @@ public class AdminService implements IAdminService{
         return liveChatRepo.findAll();
     }
 
+    @Override
+    public List<Student> getTop5StudentHaveBigScore() {
+        return studentRepo.getTop5StudentHaveBigScore();
+    }
+
 
 }
