@@ -74,5 +74,9 @@ public class AdminController {
     public ResponseEntity<List<Teacher>> findAllTeacher(){
         return new ResponseEntity<>(adminService.findAllTeacher(),HttpStatus.OK);
     }
+    @GetMapping("findAllCustomerRegister")
+    public ResponseEntity<List<CustomerRegister>> findAllCustomerRegister(){
+        return new ResponseEntity<>(adminService.findAllCustomerRegister(),HttpStatus.OK);
+    }
 
 }
