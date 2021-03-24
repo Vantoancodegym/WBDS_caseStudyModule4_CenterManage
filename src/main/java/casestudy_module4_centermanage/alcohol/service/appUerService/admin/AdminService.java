@@ -8,6 +8,8 @@ import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.Subject;
+
 @Service
 public class AdminService implements IAdminService{
     @Autowired
@@ -20,6 +22,8 @@ public class AdminService implements IAdminService{
     private WardenRepo wardenRepo;
     @Autowired
     private ScoreRepo scoreRepo;
+    @Autowired
+    private SubjectRepo subjectRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
