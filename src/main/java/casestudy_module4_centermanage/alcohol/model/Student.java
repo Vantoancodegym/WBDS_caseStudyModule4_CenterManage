@@ -19,6 +19,13 @@ public class Student {
     public Student() {
     }
 
+    public Student(Long id, Double tuition, AppUser appUser, Status status, Classes classes) {
+        this.id = id;
+        this.tuition = tuition;
+        this.appUser = appUser;
+        this.status = status;
+        this.classes = classes;
+    }
 
     public Long getId() {
         return id;
