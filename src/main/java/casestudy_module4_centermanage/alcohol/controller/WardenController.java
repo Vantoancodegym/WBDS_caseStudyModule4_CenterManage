@@ -22,21 +22,20 @@ public class WardenController {
    @PutMapping("student/edit/{id}")
     public ResponseEntity<Student> editStatus(@PathVariable Long id, @RequestBody Student student  ){
        student.setId(id);
-       wardenService.editStatusOfStudent(student);
-      return new ResponseEntity<>(HttpStatus.OK);
+      return new ResponseEntity<>( wardenService.editStatusOfStudent(student),HttpStatus.OK);
    }
 
    @PutMapping("score/edit/{id}")
     public ResponseEntity<Score> editScoreStudent (@PathVariable Long id, @RequestBody Score score){
        score.setId(id);
-       wardenService.save(score);
-       return new ResponseEntity<>(HttpStatus.OK);
+
+       return new ResponseEntity<>(wardenService.save(score),HttpStatus.OK);
    }
 
    @PostMapping("score/create")
     public ResponseEntity<Score> creatScoreStudent (@RequestBody Score score){
-       wardenService.save(score);
-       return new ResponseEntity<>(HttpStatus.OK);
+
+       return new ResponseEntity<>(wardenService.save(score),HttpStatus.OK);
    }
 
    @DeleteMapping ("score/delete/{id}")
@@ -45,7 +44,6 @@ public class WardenController {
        wardenService.delete(id);
        return new ResponseEntity<>(HttpStatus.OK);
    }
-
 
 
 
