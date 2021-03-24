@@ -78,5 +78,9 @@ public class AdminController {
     public ResponseEntity<List<CustomerRegister>> findAllCustomerRegister(){
         return new ResponseEntity<>(adminService.findAllCustomerRegister(),HttpStatus.OK);
     }
+    @PostMapping("insertCustomerRegister")
+    public ResponseEntity<CustomerRegister> insertCustomerRegister(@RequestBody CustomerRegister customerRegister){
+        return new ResponseEntity(adminService.insertCustomerRegister(customerRegister),HttpStatus.OK);
+    }
 
 }
