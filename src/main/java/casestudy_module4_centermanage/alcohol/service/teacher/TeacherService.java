@@ -1,9 +1,6 @@
 package casestudy_module4_centermanage.alcohol.service.teacher;
 
-import casestudy_module4_centermanage.alcohol.model.Classes;
-import casestudy_module4_centermanage.alcohol.model.Diary;
-import casestudy_module4_centermanage.alcohol.model.Student;
-import casestudy_module4_centermanage.alcohol.model.Teacher;
+import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
 import casestudy_module4_centermanage.alcohol.repository.DiaryRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
@@ -42,12 +39,12 @@ public class TeacherService implements ITeacherService{
     }
 
     @Override
-    public List<Student> showAllStudentByClass() {
-        return teacherRepo.showAllStudentByClass();
+    public List<AppUser> showAllStudentByClass() {
+        return teacherRepo.findAllStudentByClass();
     }
 
     @Override
     public List<Classes> showAllClass() {
-        return teacherRepo.showAllClass();
+        return teacherRepo.findAllClass();
     }
 }

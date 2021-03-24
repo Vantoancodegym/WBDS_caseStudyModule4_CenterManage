@@ -24,6 +24,10 @@ public class AppUser {
     public AppUser() {
     }
 
+    public AppUser(String username) {
+        this.username = username;
+    }
+
     public String getDisplayName() {
         return displayName;
     }
