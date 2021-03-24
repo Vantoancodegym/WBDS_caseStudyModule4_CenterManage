@@ -23,10 +23,11 @@ public class AdminController {
         adminService.insertAppUser(teacher.getAppUser());
         return new ResponseEntity(adminService.insertTeacher(teacher),HttpStatus.OK);
     }
-//    @PostMapping("insertStudent")
-//    public ResponseEntity insertStudent(@RequestBody Student student){
-//        return new ResponseEntity(adminService.insertStudent(student),HttpStatus.OK);
-//    }
+    @PostMapping("insertStudent")
+    public ResponseEntity insertStudent(@RequestBody Student student){
+        adminService.insertAppUser(student.getAppUser());
+        return new ResponseEntity(adminService.insertStudent(student),HttpStatus.OK);
+    }
 //    @PostMapping("insertWardent")
 //    public ResponseEntity<Warden> insertWarden(@RequestBody Warden warden){
 //        return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
