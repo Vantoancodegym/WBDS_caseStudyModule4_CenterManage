@@ -54,4 +54,9 @@ public class AdminService implements IAdminService{
         return scoreRepo.getAvgScoreByClasses();
     }
 
+    @Override
+    public Subject insertSubject(Subject subject) {
+        return null;
+    }
+
 }
