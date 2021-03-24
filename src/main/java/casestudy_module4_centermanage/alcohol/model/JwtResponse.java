@@ -6,8 +6,8 @@ import java.util.Collection;
 
 public class JwtResponse {
     private Long id;
-    private String token;
     private String type = "Bearer";
+    private String token;
     private String username;
     private Collection<? extends GrantedAuthority> roles;
 
