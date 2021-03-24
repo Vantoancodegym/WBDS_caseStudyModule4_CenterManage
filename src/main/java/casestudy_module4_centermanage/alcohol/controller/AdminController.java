@@ -4,14 +4,13 @@ import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
 import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
-import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
+import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.ResultSet;
 import java.util.List;
 
 @RestController

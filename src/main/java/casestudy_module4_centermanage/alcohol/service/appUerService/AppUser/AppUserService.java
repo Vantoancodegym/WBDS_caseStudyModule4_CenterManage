@@ -1,4 +1,4 @@
-package casestudy_module4_centermanage.alcohol.service.appUerService;
+package casestudy_module4_centermanage.alcohol.service.appUerService.AppUser;
 
 import casestudy_module4_centermanage.alcohol.model.AppUser;
 import casestudy_module4_centermanage.alcohol.repository.AppUserRepo;
