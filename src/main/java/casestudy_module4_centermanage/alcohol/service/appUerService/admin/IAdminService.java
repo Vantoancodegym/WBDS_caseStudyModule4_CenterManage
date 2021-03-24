@@ -2,6 +2,8 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 
+import java.util.List;
+
 
 public interface IAdminService {
     Teacher insertTeacher(Teacher teacher);
@@ -14,4 +16,7 @@ public interface IAdminService {
     int countSubject();
     int countEvent();
     int countTeacher();
+    List<Subject> findAllSubject();
+    List<Event> findAllEvent();
+    List<Teacher> findAllTeacher();
 }

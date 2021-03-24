@@ -6,6 +6,8 @@ import javafx.event.EventHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class AdminService implements IAdminService{
@@ -71,6 +73,21 @@ public class AdminService implements IAdminService{
     @Override
     public int countTeacher() {
         return teacherRepo.countTeacher();
+    }
+
+    @Override
+    public List<Subject> findAllSubject() {
+        return subjectRepo.findAll();
+    }
+
+    @Override
+    public List<Event> findAllEvent() {
+        return eventRepo.findAll();
+    }
+
+    @Override
+    public List<Teacher> findAllTeacher() {
+        return teacherRepo.findAll();
     }
 
 
