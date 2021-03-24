@@ -33,8 +33,8 @@ public class AdminController {
         adminService.insertAppUser(warden.getAppUser());
         return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
     }
-//    @PostMapping("insertClasses")
-//    public ResponseEntity<Classes> insertClasses(@RequestBody Classes classes){
-//        return new ResponseEntity<>(adminService.insertClasses(classes),HttpStatus.OK);
-//    }
+    @PostMapping("insertClasses")
+    public ResponseEntity<Classes> insertClasses(@RequestBody Classes classes){
+        return new ResponseEntity<>(adminService.insertClasses(classes),HttpStatus.OK);
+    }
 }
