@@ -11,4 +11,5 @@ public interface IAdminService {
     Warden insertWarden(Warden warden);
     Classes insertClasses(Classes classes);
     int countStudentForTeacher();
+
 }
