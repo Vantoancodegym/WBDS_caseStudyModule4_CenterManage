@@ -7,8 +7,5 @@ import casestudy_module4_centermanage.alcohol.service.IService;
 import org.aspectj.weaver.patterns.IScope;
 
 public interface IWardenService extends IService<Warden> {
-//    Iterable<Student> listFindByName(String name);
-//
-//    Iterable<Student> findAllByClassess(Classes classes);
-//    Student editStatusOfStudent(Student student);
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 
 @Service
 public class WardenService {
+<<<<<<< HEAD
 //
 //    @Autowired
 //    private WardenRepo wardenRepo;
@@ -57,3 +58,6 @@ public class WardenService {
 //}
 }
 
+=======
+}
+>>>>>>> 09ce8b8720ecb4f0758048e88ff58609bb65c342
