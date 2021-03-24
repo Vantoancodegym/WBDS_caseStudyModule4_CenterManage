@@ -12,5 +12,6 @@ public interface ITeacherService {
     Diary create(Diary diary);
     Diary edit(Diary diary);
     void delete(Long id);
+    List<Student> showAllStudentByClass();
 
 }

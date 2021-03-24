@@ -6,6 +6,7 @@ import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
 import casestudy_module4_centermanage.alcohol.repository.DiaryRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
+import casestudy_module4_centermanage.alcohol.repository.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ import java.util.List;
 
 @Service
 public class TeacherService implements ITeacherService{
+    @Autowired
+    private TeacherRepo teacherRepo;
     @Autowired
     private StudentRepo studentRepo;
 
@@ -35,5 +38,10 @@ public class TeacherService implements ITeacherService{
     @Override
     public void delete(Long id) {
         diaryRepo.deleteById(id);
+    }
+
+    @Override
+    public List<Student> showAllStudentByClass() {
+        return teacherRepo.showAllStudentByClass();
     }
 }
