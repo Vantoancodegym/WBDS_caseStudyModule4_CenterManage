@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TeacherRepo extends JpaRepository<Teacher,Long> {
-    @Query
 
 
 
