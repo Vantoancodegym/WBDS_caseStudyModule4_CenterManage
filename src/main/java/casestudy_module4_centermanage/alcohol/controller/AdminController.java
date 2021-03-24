@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class AdminController {
         return new ResponseEntity(adminService.insertLiveChat(e),HttpStatus.OK);
     }
     @GetMapping("getTop5StudentHaveBigScore")
-    public ResponseEntity<List<Student>> getTop5StudentHaveBigScore(){
+    public ResponseEntity<List<UserAppVirtual>> getTop5StudentHaveBigScore(){
         return new ResponseEntity<>(adminService.getTop5StudentHaveBigScore(),HttpStatus.OK);
     }
 

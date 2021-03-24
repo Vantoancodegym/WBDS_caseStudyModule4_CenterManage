@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 
 import java.util.List;
 
@@ -24,6 +25,6 @@ public interface IAdminService {
     Event insertEvent(Event event);
     LiveChat insertLiveChat(LiveChat liveChat);
     List<LiveChat> findAllLiveChat();
-    List<Student> getTop5StudentHaveBigScore();
+    List<UserAppVirtual> getTop5StudentHaveBigScore();
     AppUser insertAppUser(AppUser appUser);
 }

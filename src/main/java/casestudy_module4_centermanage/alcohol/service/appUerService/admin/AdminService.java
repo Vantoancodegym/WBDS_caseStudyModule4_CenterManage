@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -122,7 +123,7 @@ public class AdminService implements IAdminService{
     }
 
     @Override
-    public List<Student> getTop5StudentHaveBigScore() {
+    public List<UserAppVirtual> getTop5StudentHaveBigScore() {
         return studentRepo.getTop5StudentHaveBigScore();
     }
 

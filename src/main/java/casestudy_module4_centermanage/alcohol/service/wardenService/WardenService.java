@@ -10,13 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-<<<<<<< HEAD
-//@Service
-//public class WardenService implements IWardenService {
-=======
 @Service
 public class WardenService {
->>>>>>> d7fa5ae769b91d8f9b9e44df98869b02c4cb541a
 //
 //    @Autowired
 //    private WardenRepo wardenRepo;
@@ -58,8 +53,7 @@ public class WardenService {
 //    public Student editStatusOfStudent(Student student) {
 //        return studentRepo.save(student);
 //    }
-<<<<<<< HEAD
+
 //}
-=======
 }
->>>>>>> d7fa5ae769b91d8f9b9e44df98869b02c4cb541a
+
