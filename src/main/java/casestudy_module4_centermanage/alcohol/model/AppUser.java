@@ -21,6 +21,7 @@ public class AppUser {
     private MultipartFile avatarMul;
 
 
+
     public AppUser() {
     }
 
