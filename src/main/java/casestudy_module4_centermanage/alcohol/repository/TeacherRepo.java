@@ -12,4 +12,5 @@ import java.util.List;
 public interface TeacherRepo extends JpaRepository<Teacher,Long> {
 
 
+
 }
