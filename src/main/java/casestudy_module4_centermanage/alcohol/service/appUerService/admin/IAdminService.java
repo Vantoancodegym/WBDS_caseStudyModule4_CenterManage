@@ -23,4 +23,6 @@ public interface IAdminService {
     List<CustomerRegister> findAllCustomerRegister();
     CustomerRegister insertCustomerRegister(CustomerRegister customerRegister);
     Event insertEvent(Event event);
+    LiveChat insertLiveChat(LiveChat liveChat);
+    List<LiveChat> findAllLiveChat();
 }

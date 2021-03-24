@@ -12,6 +12,8 @@ import java.util.List;
 @Service
 public class AdminService implements IAdminService{
     @Autowired
+    private LiveChatRepo liveChatRepo;
+    @Autowired
     private ClassesRepo classesRepo;
     @Autowired
     private TeacherRepo teacherRepo;
@@ -105,6 +107,16 @@ public class AdminService implements IAdminService{
     @Override
     public Event insertEvent(Event event) {
         return eventRepo.save(event);
+    }
+
+    @Override
+    public LiveChat insertLiveChat(LiveChat liveChat) {
+        return liveChatRepo.save(liveChat);
+    }
+
+    @Override
+    public List<LiveChat> findAllLiveChat() {
+        return liveChatRepo.findAll();
     }
 
 
