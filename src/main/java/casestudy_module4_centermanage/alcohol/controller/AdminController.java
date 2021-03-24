@@ -51,6 +51,11 @@ public class AdminController {
     public ResponseEntity<Subject> insertSubject(@RequestBody Subject subject){
         return new ResponseEntity<>(adminService.insertSubject(subject),HttpStatus.OK);
     }
+    @PostMapping("insertAppUser")
+    public ResponseEntity<AppUser> insertAppUser(@RequestBody AppUser appUser){
+        return new ResponseEntity<>(adminService.insertAppUser(appUser),HttpStatus.OK);
+    }
+
     @GetMapping("countSubject")
     public ResponseEntity<Integer> countSubject(){
         return new ResponseEntity<>(adminService.countSubject(),HttpStatus.OK);
