@@ -18,4 +18,5 @@ public interface IAdminService {
     int countTeacher();
     List<Subject> findAllSubject();
     List<Event> findAllEvent();
+    List<Teacher> findAllTeacher();
 }
