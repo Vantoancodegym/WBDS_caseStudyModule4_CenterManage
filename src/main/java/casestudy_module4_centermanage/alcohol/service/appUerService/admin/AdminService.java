@@ -1,8 +1,8 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
 import casestudy_module4_centermanage.alcohol.repository.*;
-import javafx.event.EventHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +29,8 @@ public class AdminService implements IAdminService{
     private EventRepo eventRepo;
     @Autowired
     private CustomerRegisterRepo customerRegisterRepo;
+    @Autowired
+    private AppUserRepo appUserRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -55,7 +57,7 @@ public class AdminService implements IAdminService{
     }
 
     @Override
-    public double getAvgScoreByClasses() {
+    public List<ClassesVirtual> getAvgScoreByClasses() {
         return scoreRepo.getAvgScoreByClasses();
     }
 
@@ -122,6 +124,11 @@ public class AdminService implements IAdminService{
     @Override
     public List<Student> getTop5StudentHaveBigScore() {
         return studentRepo.getTop5StudentHaveBigScore();
+    }
+
+    @Override
+    public AppUser insertAppUser(AppUser appUser) {
+        return appUserRepo.save(appUser);
     }
 
 
