@@ -85,5 +85,10 @@ public class AdminService implements IAdminService{
         return eventRepo.findAll();
     }
 
+    @Override
+    public List<Teacher> findAllTeacher() {
+        return teacherRepo.findAll();
+    }
+
 
 }
