@@ -82,5 +82,9 @@ public class AdminController {
     public ResponseEntity<CustomerRegister> insertCustomerRegister(@RequestBody CustomerRegister customerRegister){
         return new ResponseEntity(adminService.insertCustomerRegister(customerRegister),HttpStatus.OK);
     }
+    @PostMapping("insertEvent")
+    public ResponseEntity<Event> insertEvent(@RequestBody Event e){
+        return new ResponseEntity(adminService.insertEvent(e),HttpStatus.OK);
+    }
 
 }
