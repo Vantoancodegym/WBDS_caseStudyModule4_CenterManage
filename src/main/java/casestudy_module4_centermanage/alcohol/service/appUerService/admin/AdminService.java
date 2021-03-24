@@ -4,10 +4,7 @@ import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.model.Warden;
-import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
-import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
-import casestudy_module4_centermanage.alcohol.repository.TeacherRepo;
-import casestudy_module4_centermanage.alcohol.repository.WardenRepo;
+import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +18,8 @@ public class AdminService implements IAdminService{
     private StudentRepo studentRepo;
     @Autowired
     private WardenRepo wardenRepo;
+    @Autowired
+    private ScoreRepo scoreRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -44,6 +43,11 @@ public class AdminService implements IAdminService{
     @Override
     public int countStudentForTeacher() {
         return studentRepo.countStudentForTeacher();
+    }
+
+    @Override
+    public double getAvgScoreByClasses() {
+        return 0;
     }
 
 }
