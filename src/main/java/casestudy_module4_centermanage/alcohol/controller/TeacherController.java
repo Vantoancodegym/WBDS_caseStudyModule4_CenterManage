@@ -40,15 +40,14 @@ public class TeacherController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     @PostMapping("diary/create")
-    public ResponseEntity<Iterable<Diary>> createDiary(@RequestBody Diary diary){
-        teacherService.create(diary);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Diary> createDiary(@RequestBody Diary diary){
+
+        return new ResponseEntity<>(teacherService.create(diary),HttpStatus.OK);
     }
     @PutMapping("diary/edit/{id}")
-    public ResponseEntity<Iterable<Diary>> editDiary(@PathVariable Long id,@RequestBody Diary diary){
+    public ResponseEntity<Diary> editDiary(@PathVariable Long id,@RequestBody Diary diary){
         diary.setId(id);
-        teacherService.edit(diary);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(teacherService.edit(diary),HttpStatus.OK);
     }
 
 }
