@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +54,8 @@ public class AdminService implements IAdminService{
     }
 
     @Override
-    public int countStudentForTeacher() {
-        return studentRepo.countStudentForTeacher();
+    public List<StudentAmountByClass> countStudentForClass() {
+        return studentRepo.countStudentForClass();
     }
 
     @Override

@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
@@ -40,8 +41,8 @@ public class AdminController {
         return new ResponseEntity<>(adminService.insertClasses(classes),HttpStatus.OK);
     }
     @GetMapping("countStudent")
-    public ResponseEntity<Integer> countStudentByClass(){
-        return new ResponseEntity(adminService.countStudentForTeacher(),HttpStatus.OK);
+    public ResponseEntity<List<StudentAmountByClass>> countStudentByClass(){
+        return new ResponseEntity(adminService.countStudentForClass(),HttpStatus.OK);
     }
     @GetMapping("getAvgScoreByClasses")
     public ResponseEntity<List<ClassesVirtual>> getAvgScoreByClasses(){
