@@ -55,4 +55,9 @@ public class AdminService implements IAdminService{
         return subjectRepo.save(subject);
     }
 
+    @Override
+    public int countSubject() {
+        return 0;
+    }
+
 }

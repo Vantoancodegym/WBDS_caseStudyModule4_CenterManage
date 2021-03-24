@@ -11,4 +11,5 @@ public interface IAdminService {
     int countStudentForTeacher();
     double getAvgScoreByClasses();
     Subject insertSubject(Subject subject);
+    int countSubject();
 }
