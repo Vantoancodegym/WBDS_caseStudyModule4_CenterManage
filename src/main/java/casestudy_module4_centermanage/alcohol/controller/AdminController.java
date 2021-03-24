@@ -6,10 +6,7 @@ import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdmin
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
@@ -36,5 +33,9 @@ public class AdminController {
     @PostMapping("insertClasses")
     public ResponseEntity<Classes> insertClasses(@RequestBody Classes classes){
         return new ResponseEntity<>(adminService.insertClasses(classes),HttpStatus.OK);
+    }
+    @GetMapping("countStudent")
+    public ResponseEntity<Integer> countStudentByClass(){
+        return new ResponseEntity(adminService.countStudentForTeacher(),HttpStatus.OK);
     }
 }
