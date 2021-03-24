@@ -13,5 +13,6 @@ public interface ITeacherService {
     Diary edit(Diary diary);
     void delete(Long id);
     List<Student> showAllStudentByClass();
+    List<Classes> showAllClass();
 
 }
