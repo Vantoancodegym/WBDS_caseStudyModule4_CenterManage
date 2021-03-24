@@ -46,4 +46,8 @@ public class AdminController {
     public ResponseEntity<List<ClassesVirtual>> getAvgScoreByClasses(){
         return new ResponseEntity(adminService.getAvgScoreByClasses(),HttpStatus.OK);
     }
+    @PostMapping("insertSubject")
+    public ResponseEntity<Subject> insertSubject(@RequestBody Subject subject){
+        return new ResponseEntity<>(adminService.insertSubject(subject),HttpStatus.OK);
+    }
 }
