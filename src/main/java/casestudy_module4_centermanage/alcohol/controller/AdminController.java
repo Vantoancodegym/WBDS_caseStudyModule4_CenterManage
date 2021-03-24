@@ -86,5 +86,9 @@ public class AdminController {
     public ResponseEntity<Event> insertEvent(@RequestBody Event e){
         return new ResponseEntity(adminService.insertEvent(e),HttpStatus.OK);
     }
+    @PostMapping("insertLiveChat")
+    public ResponseEntity<LiveChat> insertEvent(@RequestBody LiveChat e){
+        return new ResponseEntity(adminService.insertLiveChat(e),HttpStatus.OK);
+    }
 
 }
