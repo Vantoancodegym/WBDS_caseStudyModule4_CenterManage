@@ -1,14 +1,10 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
-import casestudy_module4_centermanage.alcohol.model.Classes;
-import casestudy_module4_centermanage.alcohol.model.Student;
-import casestudy_module4_centermanage.alcohol.model.Teacher;
-import casestudy_module4_centermanage.alcohol.model.Warden;
+import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.security.auth.Subject;
 
 @Service
 public class AdminService implements IAdminService{
@@ -56,7 +52,7 @@ public class AdminService implements IAdminService{
 
     @Override
     public Subject insertSubject(Subject subject) {
-        return null;
+        return subjectRepo.save(subject);
     }
 
 }
