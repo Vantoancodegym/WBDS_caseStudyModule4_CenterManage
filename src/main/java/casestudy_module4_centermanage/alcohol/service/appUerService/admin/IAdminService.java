@@ -13,4 +13,5 @@ public interface IAdminService {
     Subject insertSubject(Subject subject);
     int countSubject();
     int countEvent();
+    int countTeacher();
 }

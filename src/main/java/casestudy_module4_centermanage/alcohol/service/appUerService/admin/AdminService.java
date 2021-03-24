@@ -68,4 +68,10 @@ public class AdminService implements IAdminService{
         return eventRepo.countEvent();
     }
 
+    @Override
+    public int countTeacher() {
+        return teacherRepo.countTeacher();
+    }
+
+
 }
