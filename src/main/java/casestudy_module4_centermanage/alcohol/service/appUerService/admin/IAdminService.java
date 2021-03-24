@@ -25,4 +25,5 @@ public interface IAdminService {
     Event insertEvent(Event event);
     LiveChat insertLiveChat(LiveChat liveChat);
     List<LiveChat> findAllLiveChat();
+    List<Student> getTop5StudentHaveBigScore();
 }
