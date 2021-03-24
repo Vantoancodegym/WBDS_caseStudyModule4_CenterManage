@@ -21,7 +21,12 @@ public class AppUser {
     private MultipartFile avatarMul;
 
 
+
     public AppUser() {
+    }
+
+    public AppUser(String username) {
+        this.username = username;
     }
 
     public String getDisplayName() {
