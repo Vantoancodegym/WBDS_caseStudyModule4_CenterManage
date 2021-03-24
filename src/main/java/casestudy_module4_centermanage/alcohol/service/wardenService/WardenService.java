@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.wardenService;
 
 
+import casestudy_module4_centermanage.alcohol.model.Score;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
 import casestudy_module4_centermanage.alcohol.repository.ScoreRepo;
@@ -29,6 +30,11 @@ public class WardenService implements IWardenService {
     @Override
     public boolean editScoreForStudentBySubject(double attitude, double lab, double theory, Long student_id, Long subject_id) {
         return scoreRepo.editScoreForStudentBySubject(attitude,lab,theory,student_id,subject_id);
+    }
+
+    @Override
+    public List<Score> findAll() {
+        return scoreRepo.findAll();
     }
 }
 
