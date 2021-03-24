@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface ScoreRepo extends JpaRepository<Score,Long> {
-    @Query(value = "select classes_id as id,(avg(score_theory)+avg(score_lab)+avg(ccore_attitude))/3 as avgscore" +
-            " from score join student s on score.student_id = s.id group by classes_id",nativeQuery = true)
+    @Query(value = "select c.name,(avg(score_theory)+avg(score_lab)+avg(ccore_attitude))/3 as avgScore \n" +
+            "from score join student s on score.student_id = s.id join classes c on s.classes_id = c.id group by classes_id",nativeQuery = true)
     List<ClassesVirtual> getAvgScoreByClasses();
 }
