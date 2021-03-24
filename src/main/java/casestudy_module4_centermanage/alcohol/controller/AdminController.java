@@ -28,10 +28,11 @@ public class AdminController {
         adminService.insertAppUser(student.getAppUser());
         return new ResponseEntity(adminService.insertStudent(student),HttpStatus.OK);
     }
-//    @PostMapping("insertWardent")
-//    public ResponseEntity<Warden> insertWarden(@RequestBody Warden warden){
-//        return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
-//    }
+    @PostMapping("insertWarden")
+    public ResponseEntity<Warden> insertWarden(@RequestBody Warden warden){
+        adminService.insertAppUser(warden.getAppUser());
+        return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
+    }
 //    @PostMapping("insertClasses")
 //    public ResponseEntity<Classes> insertClasses(@RequestBody Classes classes){
 //        return new ResponseEntity<>(adminService.insertClasses(classes),HttpStatus.OK);
