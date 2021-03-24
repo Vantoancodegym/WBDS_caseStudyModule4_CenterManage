@@ -50,4 +50,8 @@ public class AdminController {
     public ResponseEntity<Subject> insertSubject(@RequestBody Subject subject){
         return new ResponseEntity<>(adminService.insertSubject(subject),HttpStatus.OK);
     }
+    @GetMapping("countSubject")
+    public ResponseEntity<Integer> countSubject(){
+        return new ResponseEntity<>(adminService.countSubject(),HttpStatus.OK);
+    }
 }
