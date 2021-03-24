@@ -25,6 +25,11 @@ public class WardenService implements IWardenService {
     public List<AvgScoreLabAndScoreTheoryOfClass> getAvgScore_labAndAvgScore_theoryByClass() {
         return scoreRepo.getAvgScore_labAndAvgScore_theoryByClass();
     }
+
+    @Override
+    public boolean editScoreForStudentBySubject(double attitude, double lab, double theory, Long student_id, Long subject_id) {
+        return scoreRepo.editScoreForStudentBySubject(attitude,lab,theory,student_id,subject_id);
+    }
 }
 
 
