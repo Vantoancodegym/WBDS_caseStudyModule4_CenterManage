@@ -1,12 +1,16 @@
 package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
 import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.ResultSet;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin")
@@ -37,5 +41,9 @@ public class AdminController {
     @GetMapping("countStudent")
     public ResponseEntity<Integer> countStudentByClass(){
         return new ResponseEntity(adminService.countStudentForTeacher(),HttpStatus.OK);
+    }
+    @GetMapping("getAvgScoreByClasses")
+    public ResponseEntity<List<ClassesVirtual>> getAvgScoreByClasses(){
+        return new ResponseEntity(adminService.getAvgScoreByClasses(),HttpStatus.OK);
     }
 }

@@ -1,5 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
+
 import java.util.List;
 
 
@@ -9,7 +11,7 @@ public interface IAdminService {
     Warden insertWarden(Warden warden);
     Classes insertClasses(Classes classes);
     int countStudentForTeacher();
-    double getAvgScoreByClasses();
+    List<ClassesVirtual> getAvgScoreByClasses();
     Subject insertSubject(Subject subject);
     int countSubject();
     int countEvent();
