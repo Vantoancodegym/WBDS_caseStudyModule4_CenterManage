@@ -102,5 +102,10 @@ public class AdminService implements IAdminService{
         return customerRegisterRepo.save(customerRegister);
     }
 
+    @Override
+    public Event insertEvent(Event event) {
+        return eventRepo.save(event);
+    }
+
 
 }

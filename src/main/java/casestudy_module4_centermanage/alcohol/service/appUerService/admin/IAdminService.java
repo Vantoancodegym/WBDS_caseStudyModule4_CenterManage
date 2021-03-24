@@ -22,4 +22,5 @@ public interface IAdminService {
     List<Teacher> findAllTeacher();
     List<CustomerRegister> findAllCustomerRegister();
     CustomerRegister insertCustomerRegister(CustomerRegister customerRegister);
+    Event insertEvent(Event event);
 }
