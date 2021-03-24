@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Classes {
@@ -12,6 +13,10 @@ public class Classes {
     private Category category;
 
     public Classes() {
+    }
+
+    public Classes(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -37,4 +42,5 @@ public class Classes {
     public void setCategory(Category category) {
         this.category = category;
     }
+
 }

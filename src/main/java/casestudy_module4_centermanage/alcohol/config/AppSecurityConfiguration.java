@@ -1,6 +1,6 @@
 package casestudy_module4_centermanage.alcohol.config;
 
-import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
+import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
