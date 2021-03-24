@@ -62,5 +62,9 @@ public class AdminController {
     public ResponseEntity<Integer> countTeacher(){
         return new ResponseEntity<>(adminService.countTeacher(),HttpStatus.OK);
     }
+    @GetMapping("findAllSubject")
+    public ResponseEntity<List<Subject>> findAllSubject(){
+        return new ResponseEntity<>(adminService.findAllSubject(),HttpStatus.OK);
+    }
 
 }
