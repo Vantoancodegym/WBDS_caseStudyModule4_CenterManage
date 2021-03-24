@@ -97,5 +97,10 @@ public class AdminService implements IAdminService{
         return customerRegisterRepo.findAll();
     }
 
+    @Override
+    public CustomerRegister insertCustomerRegister(CustomerRegister customerRegister) {
+        return customerRegisterRepo.save(customerRegister);
+    }
+
 
 }

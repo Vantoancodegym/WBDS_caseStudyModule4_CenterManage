@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.repository.CustomerRegisterRepo;
 
 import java.util.List;
 
@@ -20,4 +21,5 @@ public interface IAdminService {
     List<Event> findAllEvent();
     List<Teacher> findAllTeacher();
     List<CustomerRegister> findAllCustomerRegister();
+    CustomerRegister insertCustomerRegister(CustomerRegister customerRegister);
 }
