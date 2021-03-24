@@ -58,5 +58,9 @@ public class AdminController {
     public ResponseEntity<Integer> countEvent(){
         return new ResponseEntity<>(adminService.countEvent(),HttpStatus.OK);
     }
+    @GetMapping("countTeacher")
+    public ResponseEntity<Integer> countTeacher(){
+        return new ResponseEntity<>(adminService.countTeacher(),HttpStatus.OK);
+    }
 
 }
