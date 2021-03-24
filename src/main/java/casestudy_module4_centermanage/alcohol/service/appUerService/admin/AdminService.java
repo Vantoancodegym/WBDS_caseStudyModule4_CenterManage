@@ -28,6 +28,8 @@ public class AdminService implements IAdminService{
     private EventRepo eventRepo;
     @Autowired
     private CustomerRegisterRepo customerRegisterRepo;
+    @Autowired
+    private AppUserRepo appUserRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -121,6 +123,11 @@ public class AdminService implements IAdminService{
     @Override
     public List<Student> getTop5StudentHaveBigScore() {
         return studentRepo.getTop5StudentHaveBigScore();
+    }
+
+    @Override
+    public AppUser insertAppUser(AppUser appUser) {
+        return appUserRepo.save(appUser);
     }
 
 

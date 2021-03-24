@@ -23,4 +23,5 @@ public interface IAdminService {
     LiveChat insertLiveChat(LiveChat liveChat);
     List<LiveChat> findAllLiveChat();
     List<Student> getTop5StudentHaveBigScore();
+    AppUser insertAppUser(AppUser appUser);
 }

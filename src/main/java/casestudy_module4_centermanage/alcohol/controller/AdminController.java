@@ -1,9 +1,7 @@
 package casestudy_module4_centermanage.alcohol.controller;
 
-import casestudy_module4_centermanage.alcohol.model.Classes;
-import casestudy_module4_centermanage.alcohol.model.Student;
-import casestudy_module4_centermanage.alcohol.model.Teacher;
-import casestudy_module4_centermanage.alcohol.model.Warden;
+import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.service.appUerService.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
     @Autowired
     private IAdminService adminService;
+    @Autowired
+    private IAppUserService appUserService;
     @PostMapping("insertTeacher")
     public ResponseEntity<Teacher> insertTeacher(@RequestBody Teacher teacher){
+        adminService.insertAppUser(teacher.getAppUser());
         return new ResponseEntity(adminService.insertTeacher(teacher),HttpStatus.OK);
     }
 //    @PostMapping("insertStudent")
