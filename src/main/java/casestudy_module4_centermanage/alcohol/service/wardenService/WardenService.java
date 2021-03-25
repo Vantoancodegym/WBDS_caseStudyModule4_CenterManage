@@ -1,6 +1,5 @@
 package casestudy_module4_centermanage.alcohol.service.wardenService;
 
-
 import casestudy_module4_centermanage.alcohol.model.Score;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
@@ -13,11 +12,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
+
 public class WardenService implements IWardenService {
     @Autowired
     private StudentRepo studentRepo;
     @Autowired
-     private ScoreRepo scoreRepo;
+    private ScoreRepo scoreRepo;
+
     @Override
     public Student editStatusForStudent(Student student) {
         return studentRepo.save(student);
@@ -30,7 +32,7 @@ public class WardenService implements IWardenService {
 
     @Override
     public boolean editScoreForStudentBySubject(double attitude, double lab, double theory, Long student_id, Long subject_id) {
-        return scoreRepo.editScoreForStudentBySubject(attitude,lab,theory,student_id,subject_id);
+        return scoreRepo.editScoreForStudentBySubject(attitude, lab, theory, student_id, subject_id);
     }
 
     @Override
