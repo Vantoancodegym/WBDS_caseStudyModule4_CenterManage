@@ -13,7 +13,8 @@ import java.util.List;
 
 
 @Service
-public class AdminService implements IAdminService{
+public class
+AdminService implements IAdminService{
     @Autowired
     private LiveChatRepo liveChatRepo;
     @Autowired

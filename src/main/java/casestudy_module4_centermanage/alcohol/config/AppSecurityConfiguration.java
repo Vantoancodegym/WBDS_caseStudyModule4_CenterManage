@@ -60,9 +60,6 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
 
         http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
-                .antMatchers("/", "/login","/logot","/admin/countTeacher","/admin/countEvent",
-                        "/admin/countSubject","/admin/countStudentAllCenter","/admin/getTop3Teacher"
-                ).permitAll()
                 .antMatchers("/", "/login").permitAll()
                 .antMatchers("/", "/admin/**").permitAll()
                 .antMatchers("/", "/warden/**").permitAll()
