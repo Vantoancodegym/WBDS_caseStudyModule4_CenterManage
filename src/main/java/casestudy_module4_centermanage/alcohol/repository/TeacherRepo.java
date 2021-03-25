@@ -4,6 +4,7 @@ import casestudy_module4_centermanage.alcohol.model.AppUser;
 import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,8 +14,8 @@ import java.util.List;
 
 @Repository
 public interface TeacherRepo extends JpaRepository<Teacher,Long> {
-    @Query(value = "select name from (teacher_classes join classes c on teacher_classes.teacher_id = c.id) join teacher on teacher.id= teacher_classes.teacher_id", nativeQuery = true)
-    List<Classes> findAllClass();
+    @Query(value = "select au.display_name,c2.name as category , c.name as classesName from teacher join teacher_classes on teacher.id = teacher_classes.teacher_id join classes c on teacher_classes.classes_id = c.id join app_user au on teacher.app_user_id = au.id join category c2 on c.category_id = c2.id where teacher_id = ?", nativeQuery = true)
+    List<FindAllClassByTeacher> findAllClassByTeacher(Long id);
     @Query(value = "select display_name , name from (teacher_classes join teacher t on teacher_classes.teacher_id = t.id) join classes c on c.id= classes_id\n" +
             "join student s on c.id = s.classes_id\n" +
             "join app_user ap on s.app_user_id = ap.id",nativeQuery = true)

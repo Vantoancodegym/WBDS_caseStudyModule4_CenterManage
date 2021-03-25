@@ -27,7 +27,7 @@ public class WardenController {
     public ResponseEntity<List<AvgScoreLabAndScoreTheoryOfClass>>getAvgScore_labAndAvgScore_theoryByClass(){
         return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(),HttpStatus.OK);
     }
-    @PutMapping("editScoreForStudent")
+    @PutMapping("editScoreForStudent/{student_id}/{subject_id}")
     public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score, @PathVariable Long student_id, @PathVariable Long subject_id){
         return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),student_id,subject_id),HttpStatus.OK);
     }
