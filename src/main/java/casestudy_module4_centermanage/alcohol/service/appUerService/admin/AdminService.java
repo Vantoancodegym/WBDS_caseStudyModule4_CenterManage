@@ -139,5 +139,10 @@ public class AdminService implements IAdminService{
         return teacherRepo.getTop3Teacher();
     }
 
+    @Override
+    public int countStudentAllCenter() {
+        return studentRepo.countStudentAllCenter();
+    }
+
 
 }
