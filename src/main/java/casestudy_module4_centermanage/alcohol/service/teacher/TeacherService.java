@@ -47,4 +47,9 @@ public class TeacherService implements ITeacherService{
     public List<Classes> showAllClass() {
         return teacherRepo.findAllClass();
     }
+
+    @Override
+    public List<Diary> findAll() {
+        return diaryRepo.findAll();
+    }
 }

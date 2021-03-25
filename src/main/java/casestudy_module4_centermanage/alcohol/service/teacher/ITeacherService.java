@@ -15,5 +15,6 @@ public interface ITeacherService {
 
     List<AppUser> showAllStudentByClass();
     List<Classes> showAllClass();
+    List<Diary> findAll();
 
 }

@@ -18,6 +18,14 @@ public class Diary {
     public Diary() {
     }
 
+    public Diary(Long id, String content, Date date, Classes classes, Student student) {
+        this.id = id;
+        this.content = content;
+        this.date = date;
+        this.classes = classes;
+        this.student = student;
+    }
+
     public Long getId() {
         return id;
     }
