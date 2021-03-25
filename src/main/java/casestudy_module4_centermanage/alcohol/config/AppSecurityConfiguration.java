@@ -63,6 +63,8 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login","/logot","/admin/countTeacher","/admin/countEvent",
                         "/admin/countSubject","/admin/countStudentAllCenter","/admin/getTop3Teacher"
                 ).permitAll()
+                .antMatchers("/", "/login").permitAll()
+                .antMatchers("/", "/admin/*").permitAll()
                 .anyRequest().authenticated().and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

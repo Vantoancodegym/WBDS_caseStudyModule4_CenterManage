@@ -22,6 +22,6 @@ public interface TeacherRepo extends JpaRepository<Teacher,Long> {
 
     @Query(value = "select count(*) from teacher",nativeQuery = true)
     int countTeacher();
-    @Query(value = "select display_name as name,salary,address,phone from app_user join teacher t on app_user.id = t.app_user_id order by salary desc limit 3",nativeQuery = true)
+    @Query(value = "select display_name as name,app_user.avatar as image,salary,address,phone from app_user join teacher t on app_user.id = t.app_user_id order by salary desc limit 3",nativeQuery = true)
     List<TeacherTop> getTop3Teacher();
 }
