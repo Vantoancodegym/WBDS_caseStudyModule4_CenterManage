@@ -20,20 +20,16 @@ public class WardenController {
     @Autowired
     private WardenService wardenService;
     @PutMapping("editStatusForStudent")
-    public ResponseEntity<Student>editStatusForStudent(@RequestBody Student student){
+
+    public ResponseEntity<Student>editStatusForStudent(@RequestBody Student student,@PathVariable Long id){
         return new ResponseEntity<>(wardenService.editStatusForStudent(student), HttpStatus.OK);
     }
     @GetMapping("getAvgScore")
     public ResponseEntity<List<AvgScoreLabAndScoreTheoryOfClass>>getAvgScore_labAndAvgScore_theoryByClass(){
         return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(),HttpStatus.OK);
     }
-    @PutMapping("editScoreForStudent")
-    public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score, @PathVariable Long student_id, @PathVariable Long subject_id){
-        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),student_id,subject_id),HttpStatus.OK);
+    @PutMapping("editScoreForStudent/{id}")
+    public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score,@PathVariable Long id) {
+        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(), score.getScore_lab(), score.getScore_theory(), score.getSubject().getId(), score.getStudent().getId()), HttpStatus.OK);
     }
-    @GetMapping("findAllScore")
-    public ResponseEntity<List<Score>> find(){
-        return new ResponseEntity<>(wardenService.findAll(),HttpStatus.OK);
-    }
-
 }
