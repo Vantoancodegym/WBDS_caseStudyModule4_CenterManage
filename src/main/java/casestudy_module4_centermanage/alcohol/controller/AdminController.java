@@ -8,10 +8,16 @@ import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -23,19 +29,34 @@ public class AdminController {
     private IAdminService adminService;
     @Autowired
     private IAppUserService appUserService;
+    @Autowired
+    private Environment environment;
+
+    private AppUser createAppUser(AppUser appUser) {
+        MultipartFile multipartFile = appUser.getAvatarMul();
+        String fileName = multipartFile.getOriginalFilename();
+        String fileUpload = environment.getProperty("upload.path").toString();
+        try {
+            FileCopyUtils.copy(appUser.getAvatar().getBytes(),new File(fileUpload+fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        appUser.setAvatar(fileName);
+        return appUserService.createAppUser(appUser);
+    }
     @PostMapping("insertTeacher")
     public ResponseEntity<Teacher> insertTeacher(@RequestBody Teacher teacher){
-        adminService.insertAppUser(teacher.getAppUser());
+        createAppUser(teacher.getAppUser());
         return new ResponseEntity(adminService.insertTeacher(teacher),HttpStatus.OK);
     }
     @PostMapping("insertStudent")
     public ResponseEntity insertStudent(@RequestBody Student student){
-        adminService.insertAppUser(student.getAppUser());
+        createAppUser(student.getAppUser());
         return new ResponseEntity(adminService.insertStudent(student),HttpStatus.OK);
     }
     @PostMapping("insertWarden")
     public ResponseEntity<Warden> insertWarden(@RequestBody Warden warden){
-        adminService.insertAppUser(warden.getAppUser());
+        createAppUser(warden.getAppUser());
         return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
     }
     @PostMapping("insertClasses")
@@ -56,7 +77,7 @@ public class AdminController {
     }
     @PostMapping("insertAppUser")
     public ResponseEntity<AppUser> insertAppUser(@RequestBody AppUser appUser){
-        return new ResponseEntity<>(adminService.insertAppUser(appUser),HttpStatus.OK);
+        return new ResponseEntity<>(createAppUser(appUser),HttpStatus.OK);
     }
 
     @GetMapping("countSubject")
