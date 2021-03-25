@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.teacher;
 
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
 import casestudy_module4_centermanage.alcohol.repository.DiaryRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TeacherService implements ITeacherService{
+public class  TeacherService implements ITeacherService{
     @Autowired
     private TeacherRepo teacherRepo;
     @Autowired
@@ -44,8 +45,8 @@ public class TeacherService implements ITeacherService{
     }
 
     @Override
-    public List<Classes> showAllClass() {
-        return teacherRepo.findAllClass();
+    public List<FindAllClassByTeacher> showAllClassByTeacher(Long id) {
+        return teacherRepo.findAllClassByTeacher(id);
     }
 
     @Override

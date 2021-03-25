@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/warden")
 public class WardenController {
@@ -28,12 +29,7 @@ public class WardenController {
         return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(),HttpStatus.OK);
     }
     @PutMapping("editScoreForStudent/{id}")
-    public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score,@PathVariable Long id){
-        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),score.getSubject().getId(),score.getStudent().getId()),HttpStatus.OK);
+    public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score,@PathVariable Long id) {
+        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(), score.getScore_lab(), score.getScore_theory(), score.getSubject().getId(), score.getStudent().getId()), HttpStatus.OK);
     }
-    @GetMapping("findAllScore")
-    public ResponseEntity<List<Score>> find(){
-        return new ResponseEntity<>(wardenService.findAll(),HttpStatus.OK);
-    }
-
 }

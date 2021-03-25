@@ -4,6 +4,7 @@ import casestudy_module4_centermanage.alcohol.model.AppUser;
 import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Diary;
 import casestudy_module4_centermanage.alcohol.model.Student;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.service.teacher.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/teacher")
 public class TeacherController {
@@ -21,10 +23,10 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
-    @GetMapping("classes")
-    public ResponseEntity<List<Classes>>showAllClasses(){
-       List<Classes> classList = teacherService.showAllClass();
-        return new  ResponseEntity<>(classList, HttpStatus.OK);
+    @GetMapping("classes/{id}")
+    public ResponseEntity<List<FindAllClassByTeacher>>showAllClasses(@PathVariable Long id){
+       List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(id);
+        return new  ResponseEntity<>(list, HttpStatus.OK);
     }
     @GetMapping("diary")
     public ResponseEntity<List<Diary>>showAllDiary(){

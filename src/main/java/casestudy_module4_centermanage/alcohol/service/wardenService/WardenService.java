@@ -3,6 +3,7 @@ package casestudy_module4_centermanage.alcohol.service.wardenService;
 import casestudy_module4_centermanage.alcohol.model.Score;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
+import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.repository.ScoreRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class WardenService implements IWardenService {
     public List<Score> findAll() {
         return scoreRepo.findAll();
     }
+
 }
 
 
