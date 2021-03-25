@@ -44,6 +44,18 @@ public class AdminController {
         appUser.setAvatar(fileName);
         return appUserService.createAppUser(appUser);
     }
+    public Subject createSubject(Subject subject){
+        MultipartFile multipartFile = subject.getImageMul();
+        String fileName = multipartFile.getOriginalFilename();
+        String fileUpload = environment.getProperty("upload.path").toString();
+        try {
+            FileCopyUtils.copy(subject.getImage().getBytes(),new File(fileUpload+fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        subject.setImage(fileName);
+        return adminService.insertSubject(subject);
+    }
     @PostMapping("insertTeacher")
     public ResponseEntity<Teacher> insertTeacher(@RequestBody Teacher teacher){
         createAppUser(teacher.getAppUser());
@@ -73,7 +85,7 @@ public class AdminController {
     }
     @PostMapping("insertSubject")
     public ResponseEntity<Subject> insertSubject(@RequestBody Subject subject){
-        return new ResponseEntity<>(adminService.insertSubject(subject),HttpStatus.OK);
+        return new ResponseEntity<>(createSubject(subject),HttpStatus.OK);
     }
     @PostMapping("insertAppUser")
     public ResponseEntity<AppUser> insertAppUser(@RequestBody AppUser appUser){
