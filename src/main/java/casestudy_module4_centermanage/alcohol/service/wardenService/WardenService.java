@@ -16,44 +16,5 @@ import java.util.List;
 
 public class WardenService implements IWardenService {
 
-    @Autowired
-    private WardenRepo wardenRepo;
-
-    @Autowired
-    private ScoreRepo scoreRepo;
-
-    @Autowired
-    private StudentRepo studentRepo;
-
-
-    @Override
-    public List<Score> findAll() {
-        return scoreRepo.findAll();
-    }
-
-    @Override
-    public Score findById(Long id) {
-        return scoreRepo.findById(id).get();
-    }
-
-    @Override
-    public Score save(Score score) {
-        return scoreRepo.save(score);
-    }
-
-    @Override
-    public void delete(Long id) {
-        scoreRepo.deleteById(id);
-    }
-
-    @Override
-    public Student editStatusOfStudent(Student student) {
-        return studentRepo.save(student);
-    }
-
-    @Override
-    public double avgInClass() {
-        return wardenRepo.avgClasses();
-    }
 
 }

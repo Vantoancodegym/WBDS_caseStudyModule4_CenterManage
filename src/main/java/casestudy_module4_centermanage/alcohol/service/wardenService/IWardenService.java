@@ -9,8 +9,5 @@ import org.aspectj.weaver.patterns.IScope;
 
 public interface IWardenService extends IService<Score> {
 
-    Student editStatusOfStudent(Student student);
-
-    double avgInClass();
 }
 
