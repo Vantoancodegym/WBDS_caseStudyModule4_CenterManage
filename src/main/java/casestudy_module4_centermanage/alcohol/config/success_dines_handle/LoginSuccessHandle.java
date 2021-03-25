@@ -1,4 +1,4 @@
-package casestudy_module4_centermanage.alcohol.config;
+package casestudy_module4_centermanage.alcohol.config.success_dines_handle;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

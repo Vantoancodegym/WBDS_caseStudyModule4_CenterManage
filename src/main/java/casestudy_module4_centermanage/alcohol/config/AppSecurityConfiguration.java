@@ -1,5 +1,7 @@
 package casestudy_module4_centermanage.alcohol.config;
 
+import casestudy_module4_centermanage.alcohol.config.success_dines_handle.AccessDinyHandle;
+import casestudy_module4_centermanage.alcohol.config.success_dines_handle.LoginSuccessHandle;
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +21,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private IAppUserService appUserService;
-    @Autowired
-    private LoginSuccessHandle loginSuccessHandle;
-    @Autowired
-    private AccessDinyHandle accesDinedHandler;
+//    @Autowired
+//    private LoginSuccessHandle loginSuccessHandle;
+//    @Autowired
+//    private AccessDinyHandle accesDinedHandler;
     @Bean
     public RestAuthenticationEntryPoint restServicesEntryPoint() {
         return new RestAuthenticationEntryPoint();
@@ -61,8 +63,8 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/login").permitAll()
                 .anyRequest().authenticated().and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
-        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .exceptionHandling().accessDeniedHandler(accesDinedHandler);
+        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+//                .exceptionHandling().accessDeniedHandler(accesDinedHandler);
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
