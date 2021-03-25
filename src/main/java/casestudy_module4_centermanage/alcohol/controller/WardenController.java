@@ -18,21 +18,30 @@ import java.util.List;
 public class WardenController {
     @Autowired
     private WardenService wardenService;
-    @PutMapping("editStatusForStudent")
-    public ResponseEntity<Student>editStatusForStudent(@RequestBody Student student){
+
+    @PutMapping("editStatusForStudent/{id}")
+    public ResponseEntity<Student> editStatusForStudent(@RequestBody Student student, @PathVariable Long id) {
+        student.setId(id);
         return new ResponseEntity<>(wardenService.editStatusForStudent(student), HttpStatus.OK);
     }
+
     @GetMapping("getAvgScore")
-    public ResponseEntity<List<AvgScoreLabAndScoreTheoryOfClass>>getAvgScore_labAndAvgScore_theoryByClass(){
-        return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(),HttpStatus.OK);
-    }
-    @PutMapping("editScoreForStudent")
-    public ResponseEntity<Boolean>editScoreForStudent(@RequestBody Score score){
-        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),score.getStudent().getId(),score.getSubject().getId()),HttpStatus.OK);
-    }
-    @GetMapping("findAllScore")
-    public ResponseEntity<List<Score>> find(){
-        return new ResponseEntity<>(wardenService.findAll(),HttpStatus.OK);
+    public ResponseEntity<List<AvgScoreLabAndScoreTheoryOfClass>> getAvgScore_labAndAvgScore_theoryByClass() {
+        return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(), HttpStatus.OK);
     }
 
+    @PutMapping("editScoreForStudent")
+    public ResponseEntity<Boolean> editScoreForStudent(@RequestBody Score score) {
+        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(), score.getScore_lab(), score.getScore_theory(), score.getStudent().getId(), score.getSubject().getId()), HttpStatus.OK);
+    }
+
+    @GetMapping("findAllScore")
+    public ResponseEntity<List<Score>> find() {
+        return new ResponseEntity<>(wardenService.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("findAllStudent")
+    public ResponseEntity<List<Student>> findStudent(){
+        return new ResponseEntity<>(wardenService.findAllStudent(),HttpStatus.OK);
+    }
 }

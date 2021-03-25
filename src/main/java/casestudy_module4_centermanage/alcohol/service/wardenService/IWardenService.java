@@ -17,5 +17,6 @@ public interface IWardenService {
     List<AvgScoreLabAndScoreTheoryOfClass> getAvgScore_labAndAvgScore_theoryByClass();
     boolean editScoreForStudentBySubject(double attitude, double lab, double theory, Long student_id, Long subject_id);
     List<Score> findAll();
+    List<Student> findAllStudent();
 }
 

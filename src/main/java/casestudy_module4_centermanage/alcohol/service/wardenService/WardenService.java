@@ -14,6 +14,7 @@ import java.util.List;
 
 
 public class WardenService implements IWardenService {
+
     @Autowired
     private StudentRepo studentRepo;
     @Autowired
@@ -37,6 +38,11 @@ public class WardenService implements IWardenService {
     @Override
     public List<Score> findAll() {
         return scoreRepo.findAll();
+    }
+
+    @Override
+    public List<Student> findAllStudent() {
+        return studentRepo.findAll();
     }
 }
 
