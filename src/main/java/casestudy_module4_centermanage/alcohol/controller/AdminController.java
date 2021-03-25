@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -113,6 +114,10 @@ public class AdminController {
     @GetMapping("countStudentAllCenter")
     public ResponseEntity<Integer> countStudentAllCenter(){
         return new ResponseEntity<>(adminService.countStudentAllCenter(),HttpStatus.OK);
+    }
+    @GetMapping("getTop3Subject")
+    public ResponseEntity<List<Subject>> getTop3Subject(){
+        return new ResponseEntity<>(adminService.getTop3Subject(),HttpStatus.OK);
     }
 
 }

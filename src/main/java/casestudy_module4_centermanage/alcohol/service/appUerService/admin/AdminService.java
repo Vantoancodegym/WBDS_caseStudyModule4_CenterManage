@@ -144,5 +144,10 @@ public class AdminService implements IAdminService{
         return studentRepo.countStudentAllCenter();
     }
 
+    @Override
+    public List<Subject> getTop3Subject() {
+        return subjectRepo.getTop3Subject();
+    }
+
 
 }

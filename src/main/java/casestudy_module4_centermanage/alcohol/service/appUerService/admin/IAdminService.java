@@ -31,4 +31,5 @@ public interface IAdminService {
     AppUser insertAppUser(AppUser appUser);
     List<TeacherTop> getTop3Teacher();
     int countStudentAllCenter();
+    List<Subject> getTop3Subject();
 }
