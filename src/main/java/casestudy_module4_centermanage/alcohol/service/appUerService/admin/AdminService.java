@@ -150,5 +150,8 @@ AdminService implements IAdminService{
         return subjectRepo.getTop3Subject();
     }
 
-
+    @Override
+    public List<Classes> findAllClass() {
+        return (List<Classes>) classesRepo.findAll();
+    }
 }

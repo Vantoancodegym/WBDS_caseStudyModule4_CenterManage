@@ -32,4 +32,5 @@ public interface IAdminService {
     List<TeacherTop> getTop3Teacher();
     int countStudentAllCenter();
     List<Subject> getTop3Subject();
+    List<Classes> findAllClass();
 }

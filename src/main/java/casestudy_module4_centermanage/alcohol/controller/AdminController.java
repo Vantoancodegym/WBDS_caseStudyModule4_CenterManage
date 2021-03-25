@@ -157,5 +157,9 @@ public class AdminController {
     public ResponseEntity<List<AppUser>> getAllUser(){
         return new ResponseEntity<>(appUserService.getAllUser(),HttpStatus.OK);
     }
+    @GetMapping("findAllClass")
+    public ResponseEntity<List<Classes>> findAllClass(){
+        return new ResponseEntity<>(adminService.findAllClass(),HttpStatus.OK);
+    }
 
 }
