@@ -5,6 +5,7 @@ import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.Teacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,10 +17,12 @@ import java.util.List;
 public interface TeacherRepo extends JpaRepository<Teacher,Long> {
     @Query(value = "select au.display_name,c2.name as category , c.name as classesName from teacher join teacher_classes on teacher.id = teacher_classes.teacher_id join classes c on teacher_classes.classes_id = c.id join app_user au on teacher.app_user_id = au.id join category c2 on c.category_id = c2.id where teacher_id = ?", nativeQuery = true)
     List<FindAllClassByTeacher> findAllClassByTeacher(Long id);
-    @Query(value = "select display_name , name from (teacher_classes join teacher t on teacher_classes.teacher_id = t.id) join classes c on c.id= classes_id\n" +
+    @Query(value = "select display_name as nameStudent, ap.address as diachi, ap.phone,c.name as className from teacher_classes\n" +
+            "join teacher t on teacher_classes.teacher_id = t.id\n" +
+            "join classes c on c.id= classes_id\n" +
             "join student s on c.id = s.classes_id\n" +
-            "join app_user ap on s.app_user_id = ap.id",nativeQuery = true)
-    List<AppUser> findAllStudentByClass();
+            "join app_user ap on s.app_user_id = ap.id where t.id=?1 and c.id=?2",nativeQuery = true)
+    List<FindByStudentByClass> findAllStudentByClass(Long t_id, Long c_id);
 
     @Query(value = "select count(*) from teacher",nativeQuery = true)
     int countTeacher();

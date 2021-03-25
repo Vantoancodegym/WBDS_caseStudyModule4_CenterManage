@@ -5,6 +5,7 @@ import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Diary;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.service.teacher.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,8 +35,11 @@ public class TeacherController {
         return new ResponseEntity<>(diaryList,HttpStatus.OK);
     }
     @GetMapping("student")
-    public ResponseEntity<List<AppUser>>ShowAllStudent(){
-        return new ResponseEntity<>(teacherService.showAllStudentByClass(),HttpStatus.OK);
+    public ResponseEntity<List<FindByStudentByClass>>ShowAllStudent(@RequestParam Long id,Long cd){
+        List<FindByStudentByClass> list=teacherService.showAllStudentByClass(id,cd);
+        System.out.println(cd);
+        System.out.println(id);
+        return new ResponseEntity<>(list,HttpStatus.OK);
     }
     @DeleteMapping("diary/delete/{id}")
     public ResponseEntity<Diary>deleteDiary(@PathVariable Long id){
