@@ -56,17 +56,20 @@ public class AdminController {
     }
     @PostMapping("insertTeacher")
     public ResponseEntity<Teacher> insertTeacher(@RequestBody Teacher teacher){
-        createAppUser(teacher.getAppUser());
+        AppUser appUser = createAppUser(teacher.getAppUser());
+        teacher.setAppUser(appUser);
         return new ResponseEntity(adminService.insertTeacher(teacher),HttpStatus.OK);
     }
     @PostMapping("insertStudent")
     public ResponseEntity insertStudent(@RequestBody Student student){
-        createAppUser(student.getAppUser());
+        AppUser appUser = createAppUser(student.getAppUser());
+        student.setAppUser(appUser);
         return new ResponseEntity(adminService.insertStudent(student),HttpStatus.OK);
     }
     @PostMapping("insertWarden")
     public ResponseEntity<Warden> insertWarden(@RequestBody Warden warden){
-        createAppUser(warden.getAppUser());
+        AppUser appUser = createAppUser(warden.getAppUser());
+        warden.setAppUser(appUser);
         return new ResponseEntity(adminService.insertWarden(warden),HttpStatus.OK);
     }
     @PostMapping("insertClasses")
