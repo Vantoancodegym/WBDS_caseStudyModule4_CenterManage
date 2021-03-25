@@ -51,4 +51,5 @@ public class TeacherController {
         return new ResponseEntity<>(teacherService.edit(diary),HttpStatus.OK);
     }
 
+
 }
