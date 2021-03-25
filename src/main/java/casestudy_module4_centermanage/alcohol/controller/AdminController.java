@@ -110,5 +110,9 @@ public class AdminController {
     public ResponseEntity<List<TeacherTop>> getTop3Teacher(){
         return new ResponseEntity<>(adminService.getTop3Teacher(),HttpStatus.OK);
     }
+    @GetMapping("countStudentAllCenter")
+    public ResponseEntity<Integer> countStudentAllCenter(){
+        return new ResponseEntity<>(adminService.countStudentAllCenter(),HttpStatus.OK);
+    }
 
 }

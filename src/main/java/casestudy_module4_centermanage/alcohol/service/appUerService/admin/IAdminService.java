@@ -30,4 +30,5 @@ public interface IAdminService {
     List<UserAppVirtual> getTop5StudentHaveBigScore();
     AppUser insertAppUser(AppUser appUser);
     List<TeacherTop> getTop3Teacher();
+    int countStudentAllCenter();
 }
