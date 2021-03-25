@@ -43,15 +43,15 @@ public class AdminController {
         return appUserService.createAppUser(appUser);
     }
     public Subject createSubject(Subject subject){
-        MultipartFile multipartFile = subject.getImageMul();
-        String fileName = multipartFile.getOriginalFilename();
-        String fileUpload = environment.getProperty("upload.path").toString();
-        try {
-            FileCopyUtils.copy(subject.getImage().getBytes(),new File(fileUpload+fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        subject.setImage(fileName);
+//        MultipartFile multipartFile = subject.getImageMul();
+//        String fileName = multipartFile.getOriginalFilename();
+//        String fileUpload = environment.getProperty("upload.path").toString();
+//        try {
+//            FileCopyUtils.copy(subject.getImage().getBytes(),new File(fileUpload+fileName));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        subject.setImage(fileName);
         return adminService.insertSubject(subject);
     }
     @PostMapping("insertTeacher")
@@ -160,6 +160,10 @@ public class AdminController {
     @GetMapping("findAllClass")
     public ResponseEntity<List<Classes>> findAllClass(){
         return new ResponseEntity<>(adminService.findAllClass(),HttpStatus.OK);
+    }
+    @GetMapping("findAllCategory")
+    public ResponseEntity<List<Category>> findAllCategory(){
+        return new ResponseEntity<>(adminService.findAllCategory(),HttpStatus.OK);
     }
 
 }

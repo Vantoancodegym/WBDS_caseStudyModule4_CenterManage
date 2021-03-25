@@ -35,6 +35,8 @@ AdminService implements IAdminService{
     private CustomerRegisterRepo customerRegisterRepo;
     @Autowired
     private AppUserRepo appUserRepo;
+    @Autowired
+    private CategoryRepo categoryRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -153,5 +155,10 @@ AdminService implements IAdminService{
     @Override
     public List<Classes> findAllClass() {
         return (List<Classes>) classesRepo.findAll();
+    }
+
+    @Override
+    public List<Category> findAllCategory() {
+        return (List<Category>) categoryRepo.findAll();
     }
 }
