@@ -31,15 +31,15 @@ public class AdminController {
     private Environment environment;
 
     private AppUser createAppUser(AppUser appUser) {
-        MultipartFile multipartFile = appUser.getAvatarMul();
-        String fileName = multipartFile.getOriginalFilename();
-        String fileUpload = environment.getProperty("upload.path").toString();
-        try {
-            FileCopyUtils.copy(appUser.getAvatar().getBytes(),new File(fileUpload+fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        appUser.setAvatar(fileName);
+//        MultipartFile multipartFile = appUser.getAvatarMul();
+//        String fileName = multipartFile.getOriginalFilename();
+//        String fileUpload = environment.getProperty("upload.path").toString();
+//        try {
+//            FileCopyUtils.copy(appUser.getAvatar().getBytes(),new File(fileUpload+fileName));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        appUser.setAvatar(fileName);
         return appUserService.createAppUser(appUser);
     }
     public Subject createSubject(Subject subject){
@@ -152,6 +152,10 @@ public class AdminController {
     @GetMapping("getTop3Subject")
     public ResponseEntity<List<Subject>> getTop3Subject(){
         return new ResponseEntity<>(adminService.getTop3Subject(),HttpStatus.OK);
+    }
+    @GetMapping("getAllUser")
+    public ResponseEntity<List<AppUser>> getAllUser(){
+        return new ResponseEntity<>(appUserService.getAllUser(),HttpStatus.OK);
     }
 
 }

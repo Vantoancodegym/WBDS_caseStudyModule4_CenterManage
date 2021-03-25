@@ -45,6 +45,11 @@ public class AppUserService implements IAppUserService, UserDetailsService {
     }
 
     @Override
+    public List<AppUser> getAllUser() {
+        return (List<AppUser>) appUserRepo.findAll();
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser appUser=findByUsername(username);
         List<GrantedAuthority> authorities=new ArrayList<>();
