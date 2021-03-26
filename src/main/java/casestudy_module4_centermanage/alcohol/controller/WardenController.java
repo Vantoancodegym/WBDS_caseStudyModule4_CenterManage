@@ -42,21 +42,14 @@ public class WardenController {
         return new ResponseEntity<>(wardenService.findAllStudent(),HttpStatus.OK);
     }
 
-    @PutMapping("editScore")
-    public ResponseEntity<?>editScoreForStudentBySubject(@RequestBody Score score){
-        System.out.println(score.getCcore_attitude());
-        System.out.println(score.getScore_lab());
-        System.out.println(score.getScore_theory());
-        System.out.println(score.getId());
-        System.out.println(score.getStudent().getId());
-        System.out.println(score.getSubject().getId());
-        wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),score.getStudent().getId(), score.getSubject().getId());
-        wardenService.editScoreForStudentBySubject(7,7,7,1L,2L);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 
     @GetMapping("findOneStudent")
-    public ResponseEntity<List<FindStudentBySubjectAndClass>> findOneStudentBySubjectAndClass(@RequestParam Long sd,Long cd){
-        return new ResponseEntity<>(wardenService.findStudentBySubAndClasses(sd, cd),HttpStatus.OK);
+    public ResponseEntity<List<FindStudentBySubjectAndClass>> findOneStudentBySubjectAndClass(@RequestParam Long std, Long sd,Long cd){
+        return new ResponseEntity<>(wardenService.findStudentBySubAndClasses(std,sd, cd),HttpStatus.OK);
+    }
+
+    @PutMapping("editScoreStudent")
+    public ResponseEntity<Score> editScore(@RequestBody Score score){
+        return new ResponseEntity<>(wardenService.editScoreByStudent(score),HttpStatus.OK);
     }
 }

@@ -3,15 +3,14 @@ package casestudy_module4_centermanage.alcohol.service.wardenService;
 import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Score;
 import casestudy_module4_centermanage.alcohol.model.Student;
-import casestudy_module4_centermanage.alcohol.model.Warden;
-import casestudy_module4_centermanage.alcohol.model.Score;
-import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubjectAndClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.repository.ScoreRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
+import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,8 +51,14 @@ public class WardenService implements IWardenService {
     }
 
     @Override
-    public List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s2_id,Long c_id) {
-        return scoreRepo.findStudentBySubAndClass(s2_id,c_id);
+    public List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s_id, Long s2_id,Long c_id) {
+        List<FindStudentBySubjectAndClass> list = scoreRepo.findStudentBySubAndClass(s_id,s2_id,c_id);
+        return list;
+    }
+
+    @Override
+    public Score editScoreByStudent(Score score) {
+        return scoreRepo.save(score);
     }
 
 }

@@ -15,6 +15,7 @@ public interface IWardenService {
     int editScoreForStudentBySubject(double attitude, double lab, double theory, Long student_id, Long subject_id);
     List<Score> findAll();
     List<Student> findAllStudent();
-    List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s2_id,Long c_id);
+    List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s_id,Long s2_id,Long c_id);
+    Score editScoreByStudent (Score score);
 }
 
