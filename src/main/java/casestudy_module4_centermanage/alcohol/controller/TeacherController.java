@@ -24,6 +24,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
+
   @RequestMapping("/teacher")
 public class TeacherController {
 
@@ -65,6 +66,11 @@ public class TeacherController {
     @PostMapping("diary/create")
     public ResponseEntity<Diary> createDiary(@RequestBody Diary diary){
         return new ResponseEntity<>(teacherService.addDiaryByClass(diary),HttpStatus.OK);
+    }
+
+    @PostMapping("createTeacherClass")
+    public ResponseEntity createTeacher_Class(){
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

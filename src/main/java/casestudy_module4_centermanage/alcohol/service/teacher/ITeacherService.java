@@ -13,5 +13,6 @@ public interface ITeacherService {
     List<Diary> findAll();
     Diary addDiaryByClass(Diary diary);
     Teacher findTeacherByAppUserId(Long id);
+    void creatTeacherClasses();
 
 }
