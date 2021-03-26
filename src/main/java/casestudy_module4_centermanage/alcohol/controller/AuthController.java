@@ -30,6 +30,9 @@ public class AuthController {
     private AppUserService userService;
     @Autowired
     private TokenService tokenService;
+    private AppUser getCurrentUser(){
+        return userService.getUserCurrent();
+    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AppUser user) {
@@ -52,4 +55,9 @@ public class AuthController {
         tokenService.delete(token);
         return "succsess";
     }
+    @GetMapping("currentUser")
+     public ResponseEntity<AppUser> currentUser(){
+        return new ResponseEntity<>(getCurrentUser(),HttpStatus.OK);
+    }
+
 }
