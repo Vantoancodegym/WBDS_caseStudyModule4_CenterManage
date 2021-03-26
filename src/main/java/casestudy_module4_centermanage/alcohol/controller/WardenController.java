@@ -30,11 +30,6 @@ public class WardenController {
         return new ResponseEntity<>(wardenService.getAvgScore_labAndAvgScore_theoryByClass(), HttpStatus.OK);
     }
 
-    @PutMapping("editScoreForStudent")
-    public ResponseEntity<Boolean> editScoreForStudent(@RequestBody Score score) {
-        return new ResponseEntity<>(wardenService.editScoreForStudentBySubject(score.getCcore_attitude(), score.getScore_lab(), score.getScore_theory(), score.getStudent().getId(), score.getSubject().getId()), HttpStatus.OK);
-    }
-
     @GetMapping("findAllScore")
     public ResponseEntity<List<Score>> find() {
         return new ResponseEntity<>(wardenService.findAll(), HttpStatus.OK);
@@ -43,5 +38,18 @@ public class WardenController {
     @GetMapping("findAllStudent")
     public ResponseEntity<List<Student>> findStudent(){
         return new ResponseEntity<>(wardenService.findAllStudent(),HttpStatus.OK);
+    }
+
+    @PutMapping("editScore")
+    public ResponseEntity<?>editScoreForStudentBySubject(@RequestBody Score score){
+        System.out.println(score.getCcore_attitude());
+        System.out.println(score.getScore_lab());
+        System.out.println(score.getScore_theory());
+        System.out.println(score.getId());
+        System.out.println(score.getStudent().getId());
+        System.out.println(score.getSubject().getId());
+//        wardenService.editScoreForStudentBySubject(score.getCcore_attitude(),score.getScore_lab(),score.getScore_theory(),score.getStudent().getId(), score.getSubject().getId());
+        wardenService.editScoreForStudentBySubject(7,7,7,1L,2L);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
