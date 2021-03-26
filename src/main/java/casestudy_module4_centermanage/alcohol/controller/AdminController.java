@@ -1,10 +1,7 @@
 package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.*;
-import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
-import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
-import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
-import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.*;
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,5 +162,8 @@ public class AdminController {
     public ResponseEntity<List<Category>> findAllCategory(){
         return new ResponseEntity<>(adminService.findAllCategory(),HttpStatus.OK);
     }
-
+    @GetMapping("findAllStudentForTeacher/{id}")
+    public ResponseEntity<List<AllStudentByTeacher>> getAllStudentForTeacher(@PathVariable Long id){
+        return new ResponseEntity<>(adminService.getAllStudentForTeacher(id),HttpStatus.OK);
+    }
 }
