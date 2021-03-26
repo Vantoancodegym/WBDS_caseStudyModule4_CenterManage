@@ -1,9 +1,6 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.*;
-import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
-import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
-import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
-import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.*;
 
 import java.util.List;
 
@@ -34,4 +31,5 @@ public interface IAdminService {
     List<Subject> getTop3Subject();
     List<Classes> findAllClass();
     List<Category> findAllCategory();
+    List<AllStudentByTeacher> getAllStudentForTeacher(Long id);
 }
