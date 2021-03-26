@@ -48,4 +48,9 @@ public class  TeacherService implements ITeacherService{
     public Diary addDiaryByClass(Diary diary) {
        return diaryRepo.save(diary);
     }
+
+    @Override
+    public Teacher findTeacherByAppUserId(Long id) {
+        return teacherRepo.findTeacherByAppUser_Id(id);
+    }
 }

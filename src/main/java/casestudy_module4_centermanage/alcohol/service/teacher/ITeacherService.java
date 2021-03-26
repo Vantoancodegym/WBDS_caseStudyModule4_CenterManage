@@ -12,5 +12,6 @@ public interface ITeacherService {
     List<FindAllClassByTeacher> showAllClassByTeacher (Long id);
     List<Diary> findAll();
     Diary addDiaryByClass(Diary diary);
+    Teacher findTeacherByAppUserId(Long id);
 
 }

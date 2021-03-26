@@ -32,5 +32,6 @@ public interface TeacherRepo extends JpaRepository<Teacher,Long> {
 
     @Query(nativeQuery = true,value = "select classes_id as id,display_name as teacherName, classes.name as lop  from classes join teacher_classes on classes.id = teacher_classes.classes_id join teacher t on teacher_classes.teacher_id = t.id join app_user au on t.app_user_id = au.id")
     List<AllClassForTeacher> showAllClassForTeacher();
+    Teacher findTeacherByAppUser_Id(Long id);
 
 }
