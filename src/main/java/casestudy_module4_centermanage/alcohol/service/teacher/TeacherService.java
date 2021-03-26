@@ -1,6 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.teacher;
 
 import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.AllClassForTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.repository.ClassesRepo;
@@ -10,6 +11,7 @@ import casestudy_module4_centermanage.alcohol.repository.TeacherRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -25,20 +27,7 @@ public class  TeacherService implements ITeacherService{
     @Autowired
     private DiaryRepo diaryRepo;
 
-    @Override
-    public Diary create(Diary diary) {
-        return diaryRepo.save(diary);
-    }
 
-    @Override
-    public Diary edit(Diary diary) {
-        return diaryRepo.save(diary);
-    }
-
-    @Override
-    public void delete(Long id) {
-        diaryRepo.deleteById(id);
-    }
 
     @Override
     public List<FindByStudentByClass> showAllStudentByClass(Long t_id, Long c_id) {
@@ -53,5 +42,10 @@ public class  TeacherService implements ITeacherService{
     @Override
     public List<Diary> findAll() {
         return diaryRepo.findAll();
+    }
+
+    @Override
+    public Diary addDiaryByClass(Diary diary) {
+       return diaryRepo.save(diary);
     }
 }
