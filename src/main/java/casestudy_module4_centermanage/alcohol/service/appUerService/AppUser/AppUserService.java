@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.AppUser;
 
 import casestudy_module4_centermanage.alcohol.model.AppUser;
 import casestudy_module4_centermanage.alcohol.repository.AppUserRepo;
+import casestudy_module4_centermanage.alcohol.service.jwtService.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,17 +24,18 @@ public class AppUserService implements IAppUserService, UserDetailsService {
         return appUserRepo.findAppUserByUsername(username);
     }
     @Override
-    public AppUser getUserCurrent() {
+    public AppUser getUserCurrent(JwtService jwtService, String token) {
         AppUser appUser;
-        String name;
-        Object ob = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (ob instanceof UserDetails){
-            name = ((UserDetails)ob).getUsername();
-        }
-        else {
-            name = ob.toString();
-        }
+        String name= jwtService.getUserNameFromJwtToken(token);
+//        Object ob = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//        if (ob instanceof UserDetails){
+//            name = ((UserDetails)ob).getUsername();
+//        }
+//        else {
+//            name = ob.toString();
+//        }
+        System.out.println(name);
         appUser = this.findByUsername(name);
 
         return appUser;

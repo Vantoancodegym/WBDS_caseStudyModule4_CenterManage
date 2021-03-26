@@ -58,15 +58,18 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
+        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+
 
         http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
                 .antMatchers("/", "/login","/logout","/logot").permitAll()
                 .antMatchers("/", "/admin/**").permitAll()
+//                .antMatchers("/currentUser").permitAll()
                 .antMatchers("/", "/warden/**").permitAll()
                 .antMatchers("/", "/teacher/**").permitAll()
                 .anyRequest().authenticated().and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
-        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 //                .exceptionHandling().accessDeniedHandler(accesDinedHandler);
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
