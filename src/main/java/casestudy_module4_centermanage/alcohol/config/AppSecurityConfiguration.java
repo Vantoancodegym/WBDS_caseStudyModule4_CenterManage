@@ -60,7 +60,7 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
 
         http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
-                .antMatchers("/", "/login").permitAll()
+                .antMatchers("/", "/login","/logout","/logot").permitAll()
                 .antMatchers("/", "/admin/**").permitAll()
                 .antMatchers("/", "/warden/**").permitAll()
                 .antMatchers("/", "/teacher/**").permitAll()
