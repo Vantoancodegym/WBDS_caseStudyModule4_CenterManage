@@ -25,7 +25,7 @@ public class TeacherController {
     private TeacherService teacherService;
 
     @GetMapping("classes/{id}")
-    public ResponseEntity<List<FindAllClassByTeacher>>showAllClasses(@PathVariable Long id){
+    public ResponseEntity<List<FindAllClassByTeacher>>showAllClassesByTeacher(@PathVariable Long id){
        List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(id);
         return new  ResponseEntity<>(list, HttpStatus.OK);
     }
@@ -35,10 +35,10 @@ public class TeacherController {
         return new ResponseEntity<>(diaryList,HttpStatus.OK);
     }
     @GetMapping("student")
-    public ResponseEntity<List<FindByStudentByClass>>ShowAllStudent(@RequestParam Long id,Long cd){
+    public ResponseEntity<List<FindByStudentByClass>>ShowAllStudentByClassAndTeacher(@RequestParam Long id,Long cd){
         List<FindByStudentByClass> list=teacherService.showAllStudentByClass(id,cd);
-        System.out.println(cd);
-        System.out.println(id);
+//        System.out.println(cd);
+//        System.out.println(id);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
     @DeleteMapping("diary/delete/{id}")

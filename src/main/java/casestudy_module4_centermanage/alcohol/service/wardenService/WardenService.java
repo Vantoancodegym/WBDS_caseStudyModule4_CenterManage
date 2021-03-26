@@ -7,6 +7,7 @@ import casestudy_module4_centermanage.alcohol.model.Warden;
 import casestudy_module4_centermanage.alcohol.model.Score;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
+import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubjectAndClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.repository.ScoreRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
@@ -23,6 +24,8 @@ public class WardenService implements IWardenService {
     private StudentRepo studentRepo;
     @Autowired
      private ScoreRepo scoreRepo;
+
+
     @Override
     public Student editStatusForStudent(Student student) {
         return studentRepo.save(student);
@@ -43,13 +46,16 @@ public class WardenService implements IWardenService {
         return scoreRepo.findAll();
     }
 
-<<<<<<< HEAD
     @Override
     public List<Student> findAllStudent() {
         return studentRepo.findAll();
     }
-=======
->>>>>>> c5e21f5cbd388ee6c91bd93f5d501e8ad6d76ef5
+
+    @Override
+    public List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s2_id,Long c_id) {
+        return scoreRepo.findStudentBySubAndClass( s2_id, c_id);
+    }
+
 }
 
 
