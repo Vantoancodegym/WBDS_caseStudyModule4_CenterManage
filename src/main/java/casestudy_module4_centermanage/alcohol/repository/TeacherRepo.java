@@ -1,9 +1,7 @@
 package casestudy_module4_centermanage.alcohol.repository;
 
-import casestudy_module4_centermanage.alcohol.model.AppUser;
-import casestudy_module4_centermanage.alcohol.model.Classes;
-import casestudy_module4_centermanage.alcohol.model.Student;
-import casestudy_module4_centermanage.alcohol.model.Teacher;
+import casestudy_module4_centermanage.alcohol.model.*;
+import casestudy_module4_centermanage.alcohol.model.virtual.AllClassForTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
@@ -11,6 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -28,4 +27,10 @@ public interface TeacherRepo extends JpaRepository<Teacher,Long> {
     int countTeacher();
     @Query(value = "select display_name as name,app_user.avatar as image,salary,address,phone from app_user join teacher t on app_user.id = t.app_user_id order by salary desc limit 3",nativeQuery = true)
     List<TeacherTop> getTop3Teacher();
+    @Query(value = "insert into diary (content, date, classes_id) values (?1,?2,?3)",nativeQuery = true)
+    Diary addDiaryByClass(String content, Date date, Long id);
+
+    @Query(nativeQuery = true,value = "select classes_id as id,display_name as teacherName, classes.name as lop  from classes join teacher_classes on classes.id = teacher_classes.classes_id join teacher t on teacher_classes.teacher_id = t.id join app_user au on t.app_user_id = au.id")
+    List<AllClassForTeacher> showAllClassForTeacher();
+
 }

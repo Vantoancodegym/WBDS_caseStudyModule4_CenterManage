@@ -1,10 +1,7 @@
 package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 
 import casestudy_module4_centermanage.alcohol.model.*;
-import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
-import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
-import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
-import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
+import casestudy_module4_centermanage.alcohol.model.virtual.*;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -160,5 +157,10 @@ AdminService implements IAdminService{
     @Override
     public List<Category> findAllCategory() {
         return (List<Category>) categoryRepo.findAll();
+    }
+
+    @Override
+    public List<AllStudentByTeacher> getAllStudentForTeacher(Long id) {
+        return studentRepo.getAllStudentForTeacher(id);
     }
 }
