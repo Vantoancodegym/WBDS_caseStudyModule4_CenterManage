@@ -30,9 +30,6 @@ public class AuthController {
     private AppUserService userService;
     @Autowired
     private TokenService tokenService;
-    private AppUser getCurrentUser(){
-        return userService.getUserCurrent();
-    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AppUser user) {
@@ -51,13 +48,14 @@ public class AuthController {
     @GetMapping("/logot")
     public String logout(HttpServletRequest request){
         String token=tokenService.getJwtFromRequest(request);
-        System.out.println(token);
         tokenService.delete(token);
         return "succsess";
     }
     @GetMapping("currentUser")
-     public ResponseEntity<AppUser> currentUser(){
-        return new ResponseEntity<>(getCurrentUser(),HttpStatus.OK);
+     public ResponseEntity<AppUser> getCurrentUser(HttpServletRequest request){
+        String token=tokenService.getJwtFromRequest(request);
+        AppUser appUser=userService.getUserCurrent(jwtService,token);
+        return new ResponseEntity<>(appUser,HttpStatus.OK);
     }
 
 }
