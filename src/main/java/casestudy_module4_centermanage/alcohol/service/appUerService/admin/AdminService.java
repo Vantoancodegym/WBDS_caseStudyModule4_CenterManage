@@ -13,7 +13,8 @@ import java.util.List;
 
 
 @Service
-public class AdminService implements IAdminService{
+public class
+AdminService implements IAdminService{
     @Autowired
     private LiveChatRepo liveChatRepo;
     @Autowired
@@ -34,6 +35,8 @@ public class AdminService implements IAdminService{
     private CustomerRegisterRepo customerRegisterRepo;
     @Autowired
     private AppUserRepo appUserRepo;
+    @Autowired
+    private CategoryRepo categoryRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -149,5 +152,13 @@ public class AdminService implements IAdminService{
         return subjectRepo.getTop3Subject();
     }
 
+    @Override
+    public List<Classes> findAllClass() {
+        return (List<Classes>) classesRepo.findAll();
+    }
 
+    @Override
+    public List<Category> findAllCategory() {
+        return (List<Category>) categoryRepo.findAll();
+    }
 }
