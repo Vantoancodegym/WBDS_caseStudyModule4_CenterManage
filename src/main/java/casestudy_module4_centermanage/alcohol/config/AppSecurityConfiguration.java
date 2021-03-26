@@ -62,7 +62,8 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
                 .antMatchers("/", "/login").permitAll()
                 .antMatchers("/", "/admin/**").permitAll()
-                .antMatchers("/", "/warden/**","/teacher/**").permitAll()
+                .antMatchers("/", "/warden/**").permitAll()
+                .antMatchers("/", "/teacher/**").permitAll()
                 .anyRequest().authenticated().and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

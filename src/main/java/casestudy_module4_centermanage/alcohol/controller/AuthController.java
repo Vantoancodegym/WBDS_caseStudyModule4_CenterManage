@@ -45,10 +45,11 @@ public class AuthController {
         AppUser currentUser = userService.findByUsername(user.getUsername());
         return ResponseEntity.ok(new JwtResponse(jwt, currentUser.getId(), userDetails.getUsername(), userDetails.getAuthorities()));
     }
-    @PostMapping("/logout")
-    public void logout(HttpServletRequest request){
+    @GetMapping("/logot")
+    public String logout(HttpServletRequest request){
         String token=tokenService.getJwtFromRequest(request);
         System.out.println(token);
         tokenService.delete(token);
+        return "succsess";
     }
 }
