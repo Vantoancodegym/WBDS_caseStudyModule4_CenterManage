@@ -23,7 +23,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/teacher")
+  @RequestMapping("/teacher")
 public class TeacherController {
 
     @Autowired
