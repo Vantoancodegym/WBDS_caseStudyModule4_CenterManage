@@ -3,6 +3,7 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
 import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
+import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,8 @@ import java.util.List;
 
 
 @Service
-public class AdminService implements IAdminService{
+public class
+AdminService implements IAdminService{
     @Autowired
     private LiveChatRepo liveChatRepo;
     @Autowired
@@ -33,6 +35,8 @@ public class AdminService implements IAdminService{
     private CustomerRegisterRepo customerRegisterRepo;
     @Autowired
     private AppUserRepo appUserRepo;
+    @Autowired
+    private CategoryRepo categoryRepo;
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -133,5 +137,28 @@ public class AdminService implements IAdminService{
         return appUserRepo.save(appUser);
     }
 
+    @Override
+    public List<TeacherTop> getTop3Teacher() {
+        return teacherRepo.getTop3Teacher();
+    }
 
+    @Override
+    public int countStudentAllCenter() {
+        return studentRepo.countStudentAllCenter();
+    }
+
+    @Override
+    public List<Subject> getTop3Subject() {
+        return subjectRepo.getTop3Subject();
+    }
+
+    @Override
+    public List<Classes> findAllClass() {
+        return (List<Classes>) classesRepo.findAll();
+    }
+
+    @Override
+    public List<Category> findAllCategory() {
+        return (List<Category>) categoryRepo.findAll();
+    }
 }

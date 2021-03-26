@@ -2,6 +2,7 @@ package casestudy_module4_centermanage.alcohol.service.appUerService.admin;
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.ClassesVirtual;
 import casestudy_module4_centermanage.alcohol.model.virtual.StudentAmountByClass;
+import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.model.virtual.UserAppVirtual;
 
 import java.util.List;
@@ -28,4 +29,9 @@ public interface IAdminService {
     List<LiveChat> findAllLiveChat();
     List<UserAppVirtual> getTop5StudentHaveBigScore();
     AppUser insertAppUser(AppUser appUser);
+    List<TeacherTop> getTop3Teacher();
+    int countStudentAllCenter();
+    List<Subject> getTop3Subject();
+    List<Classes> findAllClass();
+    List<Category> findAllCategory();
 }
