@@ -59,12 +59,10 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-
-
         http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
                 .antMatchers("/", "/login","/logout","/logot").permitAll()
                 .antMatchers("/", "/admin/**").permitAll()
-//                .antMatchers("/currentUser").permitAll()
+                .antMatchers("/currentUser").permitAll()
                 .antMatchers("/", "/warden/**").permitAll()
                 .antMatchers("/", "/teacher/**").permitAll()
                 .anyRequest().authenticated().and()
