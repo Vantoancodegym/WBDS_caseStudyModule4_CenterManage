@@ -53,7 +53,7 @@ public class WardenService implements IWardenService {
 
     @Override
     public List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s2_id,Long c_id) {
-        return scoreRepo.findStudentBySubAndClass( s2_id, c_id);
+        return scoreRepo.findStudentBySubAndClass(s2_id,c_id);
     }
 
 }
