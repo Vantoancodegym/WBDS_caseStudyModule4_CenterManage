@@ -42,13 +42,20 @@ public class  TeacherService implements ITeacherService{
     }
 
     @Override
+
     public Teacher_classes createTeacherClass(Teacher_classes teacher_Classes) {
         return  teacherClassRepo.save(teacher_Classes);
+
     }
 
     @Override
     public List<Teacher_classes> showAll() {
         return teacherClassRepo.findAll();
+    }
+
+    @Override
+    public Teacher findTeacherByAppUserId(Long id) {
+        return teacherRepo.findTeacherByAppUser_Id(id);
     }
 
 }

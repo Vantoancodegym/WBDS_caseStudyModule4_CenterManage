@@ -11,7 +11,10 @@ public interface ITeacherService {
     List<FindAllClassByTeacher> showAllClassByTeacher (Long id);
     List<Diary> findAll();
     Diary addDiaryByClass(Diary diary);
+
     Teacher_classes createTeacherClass(Teacher_classes teacher_Classes);
     List<Teacher_classes> showAll();
+    Teacher findTeacherByAppUserId(Long id);
+
 
 }

@@ -3,7 +3,12 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.AppUser;
 import casestudy_module4_centermanage.alcohol.model.Diary;
+
 import casestudy_module4_centermanage.alcohol.model.Teacher_classes;
+
+import casestudy_module4_centermanage.alcohol.model.Student;
+import casestudy_module4_centermanage.alcohol.model.Teacher;
+
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.AppUserService;
@@ -45,6 +50,7 @@ public class TeacherController {
         AppUser appUser = getCurrentUser(request);
         List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(appUser.getId());
         return new ResponseEntity<>(list, HttpStatus.OK);
+
     }
 
     @GetMapping("diary")
@@ -56,8 +62,6 @@ public class TeacherController {
     @GetMapping("student")
     public ResponseEntity<List<FindByStudentByClass>> ShowAllStudentByClassAndTeacher(@RequestParam Long id, Long cd) {
         List<FindByStudentByClass> list = teacherService.showAllStudentByClass(id, cd);
-//        System.out.println(cd);
-//        System.out.println(id);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
