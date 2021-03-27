@@ -1,14 +1,12 @@
 package casestudy_module4_centermanage.alcohol.service.teacher;
 
 import casestudy_module4_centermanage.alcohol.model.*;
-import casestudy_module4_centermanage.alcohol.model.virtual.AllClassForTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindAllClassByTeacher;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindByStudentByClass;
 import casestudy_module4_centermanage.alcohol.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -44,7 +42,13 @@ public class  TeacherService implements ITeacherService{
     }
 
     @Override
-    public void creatTeacherClasses() {
-        teacherClassRepo.createTeacherClass();
+    public Teacher_classes createTeacherClass(Teacher_classes teacher_Classes) {
+        return  teacherClassRepo.save(teacher_Classes);
     }
+
+    @Override
+    public List<Teacher_classes> showAll() {
+        return teacherClassRepo.findAll();
+    }
+
 }
