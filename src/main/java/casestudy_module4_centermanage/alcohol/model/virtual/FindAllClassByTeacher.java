@@ -4,4 +4,5 @@ public interface FindAllClassByTeacher {
     String getDisplay_name();
     String getCategory();
     String getClassesName();
+    Long getId();
 }

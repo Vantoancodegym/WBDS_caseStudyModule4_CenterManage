@@ -14,7 +14,7 @@ import java.util.List;
 
 @Repository
 public interface TeacherRepo extends JpaRepository<Teacher,Long> {
-    @Query(value = "select au.display_name,c2.name as category , c.name as classesName from teacher join teacher_classes on teacher.id = teacher_classes.teacher_id join classes c on teacher_classes.classes_id = c.id join app_user au on teacher.app_user_id = au.id join category c2 on c.category_id = c2.id where teacher_id = ?", nativeQuery = true)
+    @Query(value = "select au.display_name,c2.name as category , c.name as classesName, c.id as id from teacher join teacher_classes on teacher.id = teacher_classes.teacher_id join classes c on teacher_classes.classes_id = c.id join app_user au on teacher.app_user_id = au.id join category c2 on c.category_id = c2.id where teacher_id = ?", nativeQuery = true)
     List<FindAllClassByTeacher> findAllClassByTeacher(Long id);
     @Query(value = "select display_name as nameStudent, ap.address as diachi, ap.phone,c.name as className from teacher_classes\n" +
             "join teacher t on teacher_classes.teacher_id = t.id\n" +
