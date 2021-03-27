@@ -48,7 +48,8 @@ public class TeacherController {
     @GetMapping("classes")
     public ResponseEntity<List<FindAllClassByTeacher>> showAllClassesByTeacher(HttpServletRequest request) {
         AppUser appUser = getCurrentUser(request);
-        List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(appUser.getId());
+        Teacher teacher= teacherService.findTeacherByAppUserId(appUser.getId());
+        List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(teacher.getId());
         return new ResponseEntity<>(list, HttpStatus.OK);
 
     }
