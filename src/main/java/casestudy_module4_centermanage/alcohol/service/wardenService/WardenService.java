@@ -2,11 +2,13 @@ package casestudy_module4_centermanage.alcohol.service.wardenService;
 
 import casestudy_module4_centermanage.alcohol.model.Classes;
 import casestudy_module4_centermanage.alcohol.model.Score;
+import casestudy_module4_centermanage.alcohol.model.Status;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubjectAndClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.TeacherTop;
 import casestudy_module4_centermanage.alcohol.repository.ScoreRepo;
+import casestudy_module4_centermanage.alcohol.repository.StatusRepo;
 import casestudy_module4_centermanage.alcohol.repository.StudentRepo;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class WardenService implements IWardenService {
     private StudentRepo studentRepo;
     @Autowired
      private ScoreRepo scoreRepo;
+    @Autowired
+    private StatusRepo statusRepo;
 
 
     @Override
@@ -61,6 +65,13 @@ public class WardenService implements IWardenService {
         return scoreRepo.save(score);
     }
 
+    @Override
+    public void editStudentStatus(Long status_id, Long student_id) {
+        Student student=studentRepo.findById(student_id).get();
+        Status status=statusRepo.findById(status_id).get();
+        student.setStatus(status);
+        studentRepo.save(student);
+    }
 }
 
 

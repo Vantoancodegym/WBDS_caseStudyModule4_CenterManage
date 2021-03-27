@@ -9,6 +9,7 @@ import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubject
 import casestudy_module4_centermanage.alcohol.service.StatusService;
 import casestudy_module4_centermanage.alcohol.service.wardenService.WardenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -59,5 +60,11 @@ public class WardenController {
     @GetMapping("findAllStatus")
     public ResponseEntity<List<Status>> findALlStatus(){
         return new ResponseEntity<>(statusService.findAll(),HttpStatus.OK);
+    }
+    @PutMapping("editStudentStatus")
+    public ResponseEntity<?> editStudentStatus(@RequestParam Long status_id,Long student_id){
+        wardenService.editStudentStatus(status_id,student_id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
