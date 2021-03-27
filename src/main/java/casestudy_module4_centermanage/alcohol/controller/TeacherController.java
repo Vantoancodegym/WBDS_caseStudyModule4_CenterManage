@@ -80,5 +80,17 @@ public class TeacherController {
     public ResponseEntity<List<Teacher_classes>> showAllTC(){
         return new ResponseEntity<>(teacherService.showAll(),HttpStatus.OK);
     }
+    @GetMapping("findStudentByClass/{id}")
+    public ResponseEntity<List<Student>> findStudentByClass(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.findSutdentByClass(id),HttpStatus.OK);
+    }
+    @GetMapping("findDiaryByClass/{id}")
+    public ResponseEntity<List<Diary>> findDiaryByClass(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.finDiaryByClass(id),HttpStatus.OK);
+    }
+    @GetMapping("findDiaryByStudent/{id}")
+    public ResponseEntity<List<Diary>> findDiaryByStudent(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.finDiaryByStudent(id),HttpStatus.OK);
+    }
 
 }

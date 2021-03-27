@@ -1,5 +1,7 @@
 package casestudy_module4_centermanage.alcohol.model;
 
+import net.bytebuddy.implementation.bind.annotation.Default;
+
 import javax.persistence.*;
 import java.util.Date;
 

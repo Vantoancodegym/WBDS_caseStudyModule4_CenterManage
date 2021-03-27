@@ -24,4 +24,6 @@ public interface StudentRepo extends JpaRepository<Student,Long> {
     List<UserAppVirtual> getTop5StudentHaveBigScore();
     @Query(nativeQuery = true,value = "select display_name as studentName, phone, name as className from student join app_user au on student.app_user_id = au.id join classes c on student.classes_id = c.id join teacher_classes tc on c.id = tc.classes_id where teacher_id =?")
     List<AllStudentByTeacher> getAllStudentForTeacher(Long id);
+    List<Student> getStudentByClasses_Id(Long classes_id);
+//    @Query(nativeQuery = true,value = "update student ")
 }

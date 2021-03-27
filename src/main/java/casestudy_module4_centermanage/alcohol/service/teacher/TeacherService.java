@@ -18,6 +18,8 @@ public class  TeacherService implements ITeacherService{
 
     @Autowired
     private DiaryRepo diaryRepo;
+    @Autowired
+    private StudentRepo studentRepo;
 
 
 
@@ -58,4 +60,18 @@ public class  TeacherService implements ITeacherService{
         return teacherRepo.findTeacherByAppUser_Id(id);
     }
 
+    @Override
+    public List<Student> findSutdentByClass(Long classes_id) {
+        return studentRepo.getStudentByClasses_Id(classes_id);
+    }
+
+    @Override
+    public List<Diary> finDiaryByClass(Long class_id) {
+        return diaryRepo.findDiaryByClasses_Id(class_id);
+    }
+
+    @Override
+    public List<Diary> finDiaryByStudent(Long student_id) {
+        return diaryRepo.findDiaryByStudent_Id(student_id);
+    }
 }

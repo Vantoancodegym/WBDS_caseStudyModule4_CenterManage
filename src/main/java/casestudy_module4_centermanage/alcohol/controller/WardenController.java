@@ -2,9 +2,11 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 
 import casestudy_module4_centermanage.alcohol.model.Score;
+import casestudy_module4_centermanage.alcohol.model.Status;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubjectAndClass;
+import casestudy_module4_centermanage.alcohol.service.StatusService;
 import casestudy_module4_centermanage.alcohol.service.wardenService.WardenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,8 @@ import java.util.List;
 public class WardenController {
     @Autowired
     private WardenService wardenService;
+    @Autowired
+    private StatusService statusService;
 
     @PutMapping("editStatusForStudent/{id}")
     public ResponseEntity<Student> editStatusForStudent(@RequestBody Student student, @PathVariable Long id) {
@@ -51,5 +55,9 @@ public class WardenController {
     @PutMapping("editScoreStudent")
     public ResponseEntity<Score> editScore(@RequestBody Score score){
         return new ResponseEntity<>(wardenService.editScoreByStudent(score),HttpStatus.OK);
+    }
+    @GetMapping("findAllStatus")
+    public ResponseEntity<List<Status>> findALlStatus(){
+        return new ResponseEntity<>(statusService.findAll(),HttpStatus.OK);
     }
 }
