@@ -67,4 +67,10 @@ public class WardenController {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping("findScoreByStudent/{id}")
+    public ResponseEntity<List<Score>> findScoreBYStudent(@PathVariable Long id){
+        return new ResponseEntity<>(wardenService.findScoreByStudent(id),HttpStatus.OK);
+    }
+
+
 }

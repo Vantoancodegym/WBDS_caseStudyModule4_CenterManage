@@ -72,6 +72,11 @@ public class WardenService implements IWardenService {
         student.setStatus(status);
         studentRepo.save(student);
     }
+
+    @Override
+    public List<Score> findScoreByStudent(Long student_id) {
+        return scoreRepo.findScoreByStudent_Id(student_id);
+    }
 }
 
 

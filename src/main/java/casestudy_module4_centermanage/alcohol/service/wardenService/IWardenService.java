@@ -18,5 +18,6 @@ public interface IWardenService {
     List<FindStudentBySubjectAndClass> findStudentBySubAndClasses(Long s_id,Long s2_id,Long c_id);
     Score editScoreByStudent (Score score);
     void editStudentStatus(Long status_id, Long student_id);
+    List<Score> findScoreByStudent(Long student_id);
 }
 
