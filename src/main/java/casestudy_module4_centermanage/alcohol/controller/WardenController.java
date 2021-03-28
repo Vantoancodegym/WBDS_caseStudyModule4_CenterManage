@@ -77,6 +77,10 @@ public class WardenController {
                 , ccore_attide);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping("findStudentLikeAppUserName/{name}")
+    public ResponseEntity<List<Student>> findStudentLikeAppUserName(@PathVariable String name){
+        return new ResponseEntity<>(wardenService.findStudentLikeAppUserName(name),HttpStatus.OK);
+    }
 
 
 }

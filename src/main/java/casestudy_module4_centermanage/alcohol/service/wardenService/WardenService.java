@@ -86,6 +86,12 @@ public class WardenService implements IWardenService {
         score.setCcore_attitude(ccore_attide);
         scoreRepo.save(score);
     }
+
+    @Override
+    public List<Student> findStudentLikeAppUserName(String name) {
+        name="%"+name+"%";
+        return studentRepo.findStudentLikeAppUserName(name);
+    }
 }
 
 
