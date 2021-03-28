@@ -77,6 +77,15 @@ public class WardenService implements IWardenService {
     public List<Score> findScoreByStudent(Long student_id) {
         return scoreRepo.findScoreByStudent_Id(student_id);
     }
+
+    @Override
+    public void editScoreByIdAndScore(Long id, double score_theory, double score_lab, double ccore_attide) {
+        Score score=scoreRepo.findById(id).get();
+        score.setScore_lab(score_lab);
+        score.setScore_theory(score_theory);
+        score.setCcore_attitude(ccore_attide);
+        scoreRepo.save(score);
+    }
 }
 
 

@@ -34,5 +34,4 @@ public interface ScoreRepo extends JpaRepository<Score,Long> {
     List<FindStudentBySubjectAndClass> findStudentBySubAndClass (Long s_id, Long s2_id,Long c_id);
     List<Score> findScoreByStudent_Id(Long id);
 
-
 }

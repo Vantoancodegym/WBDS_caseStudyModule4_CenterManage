@@ -71,6 +71,12 @@ public class WardenController {
     public ResponseEntity<List<Score>> findScoreBYStudent(@PathVariable Long id){
         return new ResponseEntity<>(wardenService.findScoreByStudent(id),HttpStatus.OK);
     }
+    @PutMapping("editScoreByIdAndScore")
+    public ResponseEntity<?> editScoreByIdAndScore(@RequestParam Long id, double score_theory, double score_lab, double ccore_attide){
+        wardenService.editScoreByIdAndScore(id, score_theory, score_lab
+                , ccore_attide);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 }

@@ -19,5 +19,6 @@ public interface IWardenService {
     Score editScoreByStudent (Score score);
     void editStudentStatus(Long status_id, Long student_id);
     List<Score> findScoreByStudent(Long student_id);
+    void editScoreByIdAndScore(Long id, double score_theory, double score_lab, double ccore_attide);
 }
 
