@@ -2,8 +2,11 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 import casestudy_module4_centermanage.alcohol.model.*;
 import casestudy_module4_centermanage.alcohol.model.virtual.*;
+import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.AppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import casestudy_module4_centermanage.alcohol.service.appUerService.admin.IAdminService;
+import casestudy_module4_centermanage.alcohol.service.jwtService.JwtService;
+import casestudy_module4_centermanage.alcohol.service.tokenService.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -12,6 +15,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -26,6 +30,18 @@ public class AdminController {
     private IAppUserService appUserService;
     @Autowired
     private Environment environment;
+    @Autowired
+    private JwtService jwtService;
+    @Autowired
+    private AppUserService userService;
+    @Autowired
+    private TokenService tokenService;
+
+    public AppUser getCurrentUser(HttpServletRequest request) {
+        String token = tokenService.getJwtFromRequest(request);
+        AppUser appUser = userService.getUserCurrent(jwtService, token);
+        return appUser;
+    }
 
     private AppUser createAppUser(AppUser appUser) {
 //        MultipartFile multipartFile = appUser.getAvatarMul();
@@ -131,7 +147,8 @@ public class AdminController {
         return new ResponseEntity(adminService.insertEvent(e),HttpStatus.OK);
     }
     @PostMapping("insertLiveChat")
-    public ResponseEntity<LiveChat> insertEvent(@RequestBody LiveChat e){
+    public ResponseEntity<LiveChat> insertEvent(@RequestBody LiveChat e, HttpServletRequest request){
+        e.setAppUser(getCurrentUser(request));
         return new ResponseEntity(adminService.insertLiveChat(e),HttpStatus.OK);
     }
     @GetMapping("getTop5StudentHaveBigScore")

@@ -48,7 +48,7 @@ public class AppUserService implements IAppUserService, UserDetailsService {
 
     @Override
     public List<AppUser> getAllUser() {
-        return (List<AppUser>) appUserRepo.findAll();
+        return  appUserRepo.findALlUserOrderByRole();
     }
 
     @Override

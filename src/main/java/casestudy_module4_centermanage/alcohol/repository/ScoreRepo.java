@@ -32,6 +32,6 @@ public interface ScoreRepo extends JpaRepository<Score,Long> {
             "        join classes c on student.classes_id = c.id\n" +
             "        where s.id = ? and s2.id = ? and c.id = ?",nativeQuery = true)
     List<FindStudentBySubjectAndClass> findStudentBySubAndClass (Long s_id, Long s2_id,Long c_id);
-
+    List<Score> findScoreByStudent_Id(Long id);
 
 }

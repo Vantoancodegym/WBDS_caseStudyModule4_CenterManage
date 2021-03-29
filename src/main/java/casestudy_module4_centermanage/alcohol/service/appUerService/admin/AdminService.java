@@ -34,6 +34,7 @@ AdminService implements IAdminService{
     private AppUserRepo appUserRepo;
     @Autowired
     private CategoryRepo categoryRepo;
+
     @Override
     public Teacher insertTeacher(Teacher teacher) {
         return teacherRepo.save(teacher);
@@ -121,7 +122,7 @@ AdminService implements IAdminService{
 
     @Override
     public List<LiveChat> findAllLiveChat() {
-        return liveChatRepo.findAll();
+        return (List<LiveChat>) liveChatRepo.findAll();
     }
 
     @Override

@@ -2,11 +2,14 @@ package casestudy_module4_centermanage.alcohol.controller;
 
 
 import casestudy_module4_centermanage.alcohol.model.Score;
+import casestudy_module4_centermanage.alcohol.model.Status;
 import casestudy_module4_centermanage.alcohol.model.Student;
 import casestudy_module4_centermanage.alcohol.model.virtual.AvgScoreLabAndScoreTheoryOfClass;
 import casestudy_module4_centermanage.alcohol.model.virtual.FindStudentBySubjectAndClass;
+import casestudy_module4_centermanage.alcohol.service.StatusService;
 import casestudy_module4_centermanage.alcohol.service.wardenService.WardenService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,8 @@ import java.util.List;
 public class WardenController {
     @Autowired
     private WardenService wardenService;
+    @Autowired
+    private StatusService statusService;
 
     @PutMapping("editStatusForStudent/{id}")
     public ResponseEntity<Student> editStatusForStudent(@RequestBody Student student, @PathVariable Long id) {
@@ -52,4 +57,30 @@ public class WardenController {
     public ResponseEntity<Score> editScore(@RequestBody Score score){
         return new ResponseEntity<>(wardenService.editScoreByStudent(score),HttpStatus.OK);
     }
+    @GetMapping("findAllStatus")
+    public ResponseEntity<List<Status>> findALlStatus(){
+        return new ResponseEntity<>(statusService.findAll(),HttpStatus.OK);
+    }
+    @PutMapping("editStudentStatus")
+    public ResponseEntity<?> editStudentStatus(@RequestParam Long status_id,Long student_id){
+        wardenService.editStudentStatus(status_id,student_id);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("findScoreByStudent/{id}")
+    public ResponseEntity<List<Score>> findScoreBYStudent(@PathVariable Long id){
+        return new ResponseEntity<>(wardenService.findScoreByStudent(id),HttpStatus.OK);
+    }
+    @PutMapping("editScoreByIdAndScore")
+    public ResponseEntity<?> editScoreByIdAndScore(@RequestParam Long id, double score_theory, double score_lab, double ccore_attide){
+        wardenService.editScoreByIdAndScore(id, score_theory, score_lab
+                , ccore_attide);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+    @GetMapping("findStudentLikeAppUserName/{name}")
+    public ResponseEntity<List<Student>> findStudentLikeAppUserName(@PathVariable String name){
+        return new ResponseEntity<>(wardenService.findStudentLikeAppUserName(name),HttpStatus.OK);
+    }
+
+
 }

@@ -48,7 +48,8 @@ public class TeacherController {
     @GetMapping("classes")
     public ResponseEntity<List<FindAllClassByTeacher>> showAllClassesByTeacher(HttpServletRequest request) {
         AppUser appUser = getCurrentUser(request);
-        List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(appUser.getId());
+        Teacher teacher= teacherService.findTeacherByAppUserId(appUser.getId());
+        List<FindAllClassByTeacher> list = teacherService.showAllClassByTeacher(teacher.getId());
         return new ResponseEntity<>(list, HttpStatus.OK);
 
     }
@@ -78,6 +79,18 @@ public class TeacherController {
     @GetMapping("teacherClass")
     public ResponseEntity<List<Teacher_classes>> showAllTC(){
         return new ResponseEntity<>(teacherService.showAll(),HttpStatus.OK);
+    }
+    @GetMapping("findStudentByClass/{id}")
+    public ResponseEntity<List<Student>> findStudentByClass(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.findSutdentByClass(id),HttpStatus.OK);
+    }
+    @GetMapping("findDiaryByClass/{id}")
+    public ResponseEntity<List<Diary>> findDiaryByClass(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.finDiaryByClass(id),HttpStatus.OK);
+    }
+    @GetMapping("findDiaryByStudent/{id}")
+    public ResponseEntity<List<Diary>> findDiaryByStudent(@PathVariable Long id){
+        return new ResponseEntity<>(teacherService.finDiaryByStudent(id),HttpStatus.OK);
     }
 
 }

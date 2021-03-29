@@ -10,9 +10,9 @@ public class Teacher_classes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     private Teacher teacher;
-    @OneToOne
+    @ManyToOne
     private Classes classes;
 
     public Teacher_classes() {
