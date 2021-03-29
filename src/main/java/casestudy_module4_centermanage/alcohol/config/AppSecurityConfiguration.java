@@ -5,9 +5,11 @@ import casestudy_module4_centermanage.alcohol.config.success_dines_handle.LoginS
 import casestudy_module4_centermanage.alcohol.service.appUerService.AppUser.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -18,6 +20,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
+@Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private IAppUserService appUserService;
@@ -57,20 +61,27 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().ignoringAntMatchers("/**");
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.authorizeRequests().antMatchers("/home").hasRole("ADMIN")
-                .antMatchers("/", "/login","/logout","/logot").permitAll()
-                .antMatchers("/", "/admin/**").permitAll()
-                .antMatchers("/currentUser").permitAll()
-                .antMatchers("/", "/warden/**").permitAll()
-                .antMatchers("/", "/teacher/**").permitAll()
+        http.authorizeRequests()
+//                .antMatchers("/","/logout","/logot","/admin/insertLiveChat","/admin/findAllLiveChat","/currentUser")
+////                .hasAnyRole("ADMIN","WARDEN","STUDENT","TEARCHER")
+//                .permitAll()
+//        .antMatchers("/", "/login","/admin/countStudent","/admin/countSubject","/admin/countEvent",
+//                "/admin/countTeacher","/admin/findAllSubject","/admin/findAllEvent","/admin/getTop5StudentHaveBigScore",
+//                "/admin/getTop3Teacher","/admin/countStudentAllCenter","/admin/getTop3Subject","/admin/insertCustomerRegister"
+//        ).permitAll()
+                .antMatchers("/login","/logot","/currentUser").permitAll()
+                .antMatchers("/admin/**").permitAll()
+                .antMatchers("/teacher/**").permitAll()
+                .antMatchers("/warden/**").permitAll()
                 .anyRequest().authenticated().and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
 //        http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 //                .exceptionHandling().accessDeniedHandler(accesDinedHandler);
-        http.sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        http.sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.csrf().disable();
 
     }

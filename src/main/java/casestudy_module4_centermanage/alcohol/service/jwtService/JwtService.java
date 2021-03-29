@@ -38,24 +38,23 @@ public class JwtService {
     }
 
     public boolean validateJwtToken(String authToken) {
-        return tokenService.checkValidToken(authToken);
 
-//        try {
-//            Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(authToken);
-//            return true;
-//        } catch (SignatureException e) {
-//            logger.error("Invalid JWT signature -> Message: {} ", e);
-//        } catch (MalformedJwtException e) {
-//            logger.error("Invalid JWT token -> Message: {}", e);
-//        } catch (ExpiredJwtException e) {
-//            logger.error("Expired JWT token -> Message: {}", e);
-//        } catch (UnsupportedJwtException e) {
-//            logger.error("Unsupported JWT token -> Message: {}", e);
-//        } catch (IllegalArgumentException e) {
-//            logger.error("JWT claims string is empty -> Message: {}", e);
-//        }
+        try {
+            Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(authToken);
+            return tokenService.checkValidToken(authToken);
+        } catch (SignatureException e) {
+            logger.error("Invalid JWT signature -> Message: {} ", e);
+        } catch (MalformedJwtException e) {
+            logger.error("Invalid JWT token -> Message: {}", e);
+        } catch (ExpiredJwtException e) {
+            logger.error("Expired JWT token -> Message: {}", e);
+        } catch (UnsupportedJwtException e) {
+            logger.error("Unsupported JWT token -> Message: {}", e);
+        } catch (IllegalArgumentException e) {
+            logger.error("JWT claims string is empty -> Message: {}", e);
+        }
 
-//        return false;
+        return false;
     }
 
     public String getUserNameFromJwtToken(String token) {
