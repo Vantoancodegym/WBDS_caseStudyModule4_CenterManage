@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Teacher_classes {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private Teacher teacher;
