@@ -61,7 +61,6 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().ignoringAntMatchers("/**");
         http.httpBasic().authenticationEntryPoint(restServicesEntryPoint());
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
@@ -73,7 +72,9 @@ public class AppSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                "/admin/getTop3Teacher","/admin/countStudentAllCenter","/admin/getTop3Subject","/admin/insertCustomerRegister"
 //        ).permitAll()
 
-                .antMatchers("/login","/logot","/currentUser").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/logot").permitAll()
+                .antMatchers("/currentUser").permitAll()
                 .antMatchers("/admin/**").permitAll()
                 .antMatchers("/teacher/**").permitAll()
                 .antMatchers("/warden/**").permitAll()
