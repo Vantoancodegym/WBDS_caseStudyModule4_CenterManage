@@ -35,3 +35,10 @@ out/
 
 ### VS Code ###
 .vscode/
+*.env
+toan.env
+<<<<<<< HEAD
+mung.env
+=======
+duyet.env
+>>>>>>> 80a1518af7c4bc895bb7941655d5467a2cfbaada
